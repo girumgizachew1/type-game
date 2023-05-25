@@ -26,16 +26,12 @@ const App = () => {
   const [highScore, setHighScore] = useState(undefined);
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
-
   const sound = {
     gameover: useRef(new Audio(gameoverBgm)),
     main: useRef(new Audio(gameBgm)),
     correct: useRef(new Audio(correctBgm))
   };
-
-    // Declare the wordTypeInput variable
-    let wordTypeInput = useRef(null);
-
+  let wordTypeInput = useRef(null); // Declare wordTypeInput using useRef
 
   useEffect(() => {
     if (localStorage.wordBeaterStats) {
@@ -57,6 +53,8 @@ const App = () => {
       const input = e.target.value.toLowerCase().trim();
       setTypedValue(input);
     };
+console.log("typedValue"+typedValue)
+console.log("current"+currentWord)
 
     const handleGameState = () => {
       if (typedValue === currentWord) {
@@ -117,7 +115,7 @@ const App = () => {
 
     document.addEventListener('click', (e) => {
       e.stopImmediatePropagation();
-      if (gameStarted && countdownFinished) wordTypeInput.focus();
+      if (gameStarted && countdownFinished) wordTypeInput.current.focus();
     });
 
     return () => {
@@ -154,7 +152,7 @@ const App = () => {
 
     document.addEventListener('click', (e) => {
       e.stopImmediatePropagation();
-      if (gameStarted && countdownFinished) wordTypeInput.focus();
+      if (gameStarted && countdownFinished) wordTypeInput.current.focus();
     });
   };
 
@@ -200,8 +198,11 @@ const App = () => {
     setTypedValue(input);
   };
 
+  
   const setInputMaxLength = () => {
-    wordTypeInput.setAttribute('maxlength', currentWord.length);
+    if (wordTypeInput.current) {
+      wordTypeInput.current.setAttribute('maxlength', currentWord.length);
+    }
   };
 
   const audioHandler = () => {
@@ -234,8 +235,7 @@ const App = () => {
                 lastScore
               }}
               onTypeHandler={onTypeHandler}
-              wordTypeInput={(el) => (wordTypeInput = el)}
-            />
+              wordTypeInput={(el) => (wordTypeInput.current = el)}            />
           )}
           {gameOver && (
             <GameOver

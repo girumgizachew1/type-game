@@ -28,6 +28,7 @@ import PropTypes from 'prop-types';
       const onKeyUpHandler = (e) => {
         const input = e.target.value;
         const regExp = new RegExp(input, 'g');
+
         visibleCurrentWord.current.innerHTML = currentWord;
         if (input.trim() !== '') {
           visibleCurrentWord.current.innerHTML = currentWord.replace(regExp, (match) => {
@@ -36,9 +37,11 @@ import PropTypes from 'prop-types';
         }
 
       };
+  
 
       useEffect(() => {
         if (currentWord === typedValue) {
+          console.log('here')
           const span = document.createElement('span');
           const h2 = document.createElement('h2');
           span.className = 'plus';
