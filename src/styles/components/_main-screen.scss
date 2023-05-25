@@ -1,0 +1,42 @@
+.beater {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.beater__main {
+  width:70%;
+  max-width: 120rem;
+  height: 100%;
+  margin: auto;
+  position: relative;
+  color: #fff;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.beater__main-title {
+  font-size: $font-xxl;
+  font-weight: 900;
+  margin-bottom: $m-size;
+}
+
+.beater__main-subtitle {
+  margin-bottom: 0;
+  line-height: $l-size;
+  @media (min-width: 1024px) {
+    width: 80%;
+  }
+}
+
+.beater__main-actions {
+  display: flex;
+
+  button {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+}

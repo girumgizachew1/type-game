@@ -1,0 +1,38 @@
+/*
+ -------------------
+ Base
+*/
+
+@import './base/settings';
+@import './base/base';
+
+/*
+ -------------------
+ Mixins and functions
+*/
+
+@import './mixins/mixins';
+
+/*
+ -------------------
+ Components
+*/
+@import './components/button';
+@import './components/loader';
+@import './components/main-screen';
+@import './components/game';
+@import './components/gameover';
+
+/*
+ -------------------
+ Responsive
+*/
+
+@import './responsive/tablet';
+@import './responsive/smartphone';
+
+/*
+ -------------------
+ Utils
+*/
+@import './utils/animation';

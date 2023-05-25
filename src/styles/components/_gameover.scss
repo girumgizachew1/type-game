@@ -1,0 +1,25 @@
+.beater__gameover {
+  color: #fff;
+  width: 70%;
+  height: 100vh;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  h2 {
+    margin-bottom: 0;
+  }
+}
+
+.beater__gameover-title {
+  text-align: center;
+  @extend .beater__main-title;
+}
+
+.beater__gameover-summary {
+  width: 35rem;
+  display: flex;
+  justify-content: space-between;
+}

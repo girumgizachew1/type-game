@@ -1,0 +1,229 @@
+
+.beater__game {
+  color: #fff;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+
+}
+
+.beater__game-greet {
+  width: 100%;
+  position: fixed;
+  top: $l-size;
+  margin: auto;
+
+  h2 {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+    color: $yellow;
+    @include textShadow($yellow);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    img {
+      width: 20px;
+      height: 20px;
+      margin: 0 $m-size;
+    }
+  }
+
+  h2.showGreet {
+    transform-origin: center;
+    @include animation(greet, 1s);
+  }
+}
+
+.beater__game-wrapper {
+  width: 70%;
+  max-width: 120rem;
+  height: 100%;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.beater__game-widgets {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: $padding-sm $padding-xl;
+}
+
+.beater__game-widgets-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: relative;
+
+  & > div {
+    position: relative;
+  }
+
+  h2 {
+    font-size: $font-md;
+    margin-top: $s-size;
+  }
+
+  h2.timeRunningOut {
+    color: $red;
+    @include textShadow($red);
+    @include animation(shrinkGrow, .5s, infinite)
+  }
+
+  span {
+    color: rgba(255, 255, 255, .5);
+  }
+
+  span.plus {
+    color: $yellow;
+    position: absolute;
+    right: -20px;
+    top: 0;
+    z-index: 1;
+    opacity: 0;
+    @include animation(plusPoints, 1s);
+  }
+}
+
+.beater__game-current {
+  padding: $padding-xs $padding-l;
+  width: 100%;
+  text-align: center;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 1px;
+    background:rgba(255, 255, 255, .1);
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  h1 {
+    @extend .beater__main-title;
+    text-transform: lowercase;
+    @include textShadow($blue);
+    margin-top: $padding-sm;
+    word-break: break-all;
+  }
+
+  p {
+    font-size: $s-size;
+    color: rgba(255, 255, 255, .5);
+    letter-spacing: 2px;
+  }
+
+}
+
+.beater__game-input {
+  background: transparent;
+  padding: $padding-md;
+  padding-bottom: $padding-xs;
+  font-size: $font-md;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid transparentize(#fff, .5);
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    opacity: .2;
+  }
+}
+
+
+.beater__countdown {
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.beater__countdown-count {
+  font-size: $font-xxl;
+  color: $yellow;
+  @include animation(pulse, 1s, infinite);
+}
+
+
+
+.beater__audio-control {
+  position: absolute;
+  bottom: $padding-md;
+  left: $padding-md;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  z-index: 10;
+
+  span {
+    font-size: 8px;
+    margin-bottom: $s-size;
+  }
+
+  &-wrapper {
+    width: 40px;
+    height: 20px;
+    background: rgba(255, 255, 255, .2);
+    border-radius: 20px;
+    position: relative;
+    transition: all .3s ease;
+    
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &-toggle {
+    width: 20px;
+    height: 20px;
+    background: $lime;
+    border-radius: 50%;
+    position: absolute;
+    transition: all .3s ease;
+  }
+}
+
+
+.fadeIn {
+  @include animation(fadein, .5s);
+}
+
+.copyright {
+  font-size: 10px;
+  margin-top: $padding-xl;
+  opacity: .4;
+
+  a { color: lighten($pink, 20%); }
+}
+
+.matched {
+  color: $yellow;
+}
+
+.not-matched {
+  color: $red;
+}

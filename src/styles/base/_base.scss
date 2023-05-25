@@ -1,0 +1,28 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-family: 'Muli', Helvetica, Arial, sans-serif;
+    font-size: 1.6rem;
+    background: $background;
+}
+
+button {
+    border: none;
+    text-transform: uppercase;
+    color: #fff;
+    padding: $padding-sm $padding-xl;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+}   
