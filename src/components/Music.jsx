@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const Music = ({ audioHandler, audioMuted }) => (
   <div className="beater__audio-control">
-    <span>MUSIC</span>
+    <h4>ሙዚቃ</h4>
     <div
       className="beater__audio-control-wrapper"
       onClick={audioHandler}
