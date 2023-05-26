@@ -3,11 +3,9 @@ import PropTypes from 'prop-types';
 
 const MainScreen = ({ initGame }) => (
   <div className="beater__main fadeIn">
-    <h1 className="beater__main-title">Word Beater</h1>
+    <h1 className="beater__main-title">የቃል አሸናፊ</h1>
     <p className="beater__main-subtitle">
-      Do you have what it takes to become the fastest and most accurate typist?
-      Type every single word correctly within a given time limit to become a 
-      word beater master!
+    ፈጣኑ እና ትክክለኛ ጸሐፊ ለመሆን የሚያስፈልገው ነገር አለህ? የቃል አሸናፊ ለመሆን በተሰጠው የጊዜ ገደብ ውስጥ እያንዳንዱን ቃል በትክክል ይፃፉ!
     </p>
     <button
       className="button--primary button--big"
