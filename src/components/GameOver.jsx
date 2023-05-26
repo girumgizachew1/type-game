@@ -27,7 +27,7 @@ const GameOver = ({ gameData: { highScore, lastScore, score, level }, initGame, 
       )}
 
       <div className="beater__main-actions">
-        <button className="button--primary button--big" onClick={initGame}>
+        <button className="button--secondary button--big" onClick={initGame}>
         እንደገና ሞክር
         </button>
         <button className="button--secondary button--big" onClick={quitGame}>
