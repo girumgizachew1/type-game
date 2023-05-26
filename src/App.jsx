@@ -22,7 +22,7 @@ const App = () => {
   const [plusScore, setPlusScore] = useState(10);
   const [gameOver, setGameOver] = useState(false);
   const [audioMuted, setAudioMuted] = useState(false);
-  const [greet, setGreet] = useState('awesome!');
+  const [greet, setGreet] = useState('ደስ የሚል!');
   const [highScore, setHighScore] = useState(undefined);
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -72,7 +72,7 @@ const App = () => {
       } else if (score >= 1490) {
         setGameStateOnComplete(12, 3, 12, 20); // lvl 3: 12s
       } else if (score >= 490) {
-        setGameStateOnComplete(15, 2, 15, 15); // lvl 2: 15s
+        setGameStateOnComplete(25, 2, 15, 15); // lvl 2: 15s
       }
     }
 
@@ -110,7 +110,7 @@ const App = () => {
         setTypedValue('');
         setPlusScore(10);
         setCurrentWord(undefined);
-        setGreet('awesome!');
+        setGreet('ደስ የሚል!');
         setScore(false);
 
         if (!audioMuted) gameoverSound.play();
