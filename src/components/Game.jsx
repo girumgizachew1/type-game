@@ -60,7 +60,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
       <div className="beater__game-wrapper">
         <div className="beater__game-greet" ref={greetingWrapper} />
         <div className="beater__game-current">
-          <p>ይህን ቃል ጻፈው</p>
+          <p>ይህን ቃል ይጻፉ</p>
           <h1 ref={visibleCurrentWord}>{currentWord}</h1>
         </div>
         <div className="beater__game-widgets">

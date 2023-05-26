@@ -210,7 +210,7 @@ const App = () => {
 
   const setInputMaxLength = () => {
     if (wordTypeInput.current) {
-      wordTypeInput.current.setAttribute('maxlength', currentWord.length);
+      wordTypeInput.current.setAttribute('maxlength', currentWord.length+1);
     }
   };
 
