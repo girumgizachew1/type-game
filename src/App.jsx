@@ -8,6 +8,7 @@ import Loader from './components/Loader';
 import { generateWord, generateGreet } from './helpers/random-word';
 import correctBgm from './audios/correct.mp3';
 import gameoverBgm from './audios/gameover.mp3';
+import gameBgm from './audios/roph.mp3';
 import transcriptionRules from './helpers/Translationrule';
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -27,6 +28,7 @@ const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const sound = {
     gameover: useRef(new Audio(gameoverBgm)),
+    main: useRef(new Audio(gameBgm)),
     correct: useRef(new Audio(correctBgm))
   };
   let wordTypeInput = useRef(null); // Declare wordTypeInput using useRef
@@ -44,6 +46,7 @@ const App = () => {
 
   useEffect(() => {
     const { current: gameoverSound } = sound.gameover;
+    const { current: mainSound } = sound.main;
     const { current: correctSound } = sound.correct;
 
     setInputMaxLength();
@@ -74,10 +77,10 @@ const App = () => {
     }
 
     if (audioMuted) {
-    //  mainSound.pause();
- //     mainSound.currentTime = 0;
+      mainSound.pause();
+      mainSound.currentTime = 0;
     } else {
-      // mainSound.play();
+      mainSound.play();
     }
   }, [
     currentWord,
@@ -91,6 +94,7 @@ const App = () => {
 
   useEffect(() => {
     const { current: gameoverSound } = sound.gameover;
+    const { current: mainSound } = sound.main;
 
     const gameTimer = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
@@ -109,6 +113,8 @@ const App = () => {
         setGreet('awesome!');
         setScore(false);
 
+        if (!audioMuted) gameoverSound.play();
+        mainSound.volume = 0.1;
       }
     }, 1000);
 
@@ -147,7 +153,8 @@ const App = () => {
     setScore(0);
     setLevel(1);
 
-  
+    sound.main.current.volume = 0.2;
+
     document.addEventListener('click', (e) => {
       e.stopImmediatePropagation();
       if (gameStarted && countdownFinished) wordTypeInput.current.focus();
