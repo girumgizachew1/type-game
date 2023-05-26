@@ -7,7 +7,7 @@ const Loader = () => (
       <div className="second-indicator" />
     </div>
 
-    <h4>Loading</h4>
+    <h4>በመጫን ላይ</h4>
   </div>
 );
 

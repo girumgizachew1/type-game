@@ -123,9 +123,9 @@ export const generateWord = (options) => {
 
 export const generateGreet = () => {
   const greets = [
-    'nice!', 'awesome!', 'excellent!', 'fantastic!',
-    'incredible!', 'marvelous!', 'wonderful!', 'incredible!',
-    'amazing!', 'impressive!', 'wowowee!', 'perfect!'
+    'ጥሩ!', 'ግሩም!', 'በጣም ጥሩ!', 'ድንቅ!',
+    'አስደናቂ!', 'ድንቅ!', 'ድንቅ!', 'የማይታመን!'
+    , 'አስደሳች!', 'ብልህ!', 'ፍጹም!'
   ];
   const random = Math.floor(Math.random() * greets.length);
   
