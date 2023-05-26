@@ -49,47 +49,52 @@ const App = () => {
     const { current: mainSound } = sound.main;
     const { current: correctSound } = sound.correct;
 
-    const handleTyping = (e) => {
-      const input = e.target.value.toLowerCase().trim();
-      setTypedValue(input);
-    };
-console.log("typedValue"+typedValue)
-console.log("current"+currentWord)
+    setInputMaxLength();
 
-    const handleGameState = () => {
-      if (typedValue === currentWord) {
-        setCurrentWord(generateWord());
-        setTypedValue('');
-        setScore((prevScore) => prevScore + plusScore);
-        setTimer(timerBase);
-        setGreet(generateGreet());
-        setInputMaxLength();
+    if (typedValue === currentWord) {
+      setCurrentWord(generateWord());
+      setTypedValue('');
+      setTimer(timerBase);
+      setScore((prevScore) => prevScore + plusScore);
+      setGreet(generateGreet());
 
-        if (!audioMuted) {
-          correctSound.currentTime = 0;
-          correctSound.play();
-        }
-
-        if (score >= 4490) {
-          setGameStateOnComplete(3, 6, 3, 25); // lvl 6: 3s
-        } else if (score >= 3990) {
-          setGameStateOnComplete(6, 5, 6, 20); // lvl 5: 6s
-        } else if (score >= 2490) {
-          setGameStateOnComplete(9, 4, 9, 20); // lvl 4: 9s
-        } else if (score >= 1490) {
-          setGameStateOnComplete(12, 3, 12, 20); // lvl 3: 12s
-        } else if (score >= 490) {
-          setGameStateOnComplete(15, 2, 15, 15); // lvl 2: 15s
-        }
+      if (!audioMuted) {
+        correctSound.currentTime = 0;
+        correctSound.play();
       }
 
-      if (audioMuted) {
-        mainSound.pause();
-        mainSound.currentTime = 0;
-      } else {
-        mainSound.play();
+      if (score >= 4490) {
+        setGameStateOnComplete(3, 6, 3, 25); // lvl 6: 3s
+      } else if (score >= 3990) {
+        setGameStateOnComplete(6, 5, 6, 20); // lvl 5: 6s
+      } else if (score >= 2490) {
+        setGameStateOnComplete(9, 4, 9, 20); // lvl 4: 9s
+      } else if (score >= 1490) {
+        setGameStateOnComplete(12, 3, 12, 20); // lvl 3: 12s
+      } else if (score >= 490) {
+        setGameStateOnComplete(15, 2, 15, 15); // lvl 2: 15s
       }
-    };
+    }
+
+    if (audioMuted) {
+      mainSound.pause();
+      mainSound.currentTime = 0;
+    } else {
+      // mainSound.play();
+    }
+  }, [
+    currentWord,
+    typedValue,
+    plusScore,
+    score,
+    timerBase,
+    audioMuted,
+    timer,
+  ]);
+
+  useEffect(() => {
+    const { current: gameoverSound } = sound.gameover;
+    const { current: mainSound } = sound.main;
 
     const gameTimer = setInterval(() => {
       setTimer((prevTimer) => prevTimer - 1);
@@ -119,20 +124,20 @@ console.log("current"+currentWord)
     });
 
     return () => {
-      document.removeEventListener('click', () => {});
+      document.removeEventListener('click', () => { });
       clearInterval(gameTimer);
     };
   }, [
-    currentWord,
-    typedValue,
     plusScore,
     score,
     timerBase,
     audioMuted,
     gameStarted,
     gameOver,
-    timer
+    timer,
+    //    updateHighScore,
   ]);
+
 
   const setGameStateOnComplete = (tb, lvl, t, ps = 10) => {
     setTimerBase(tb);
@@ -194,11 +199,20 @@ console.log("current"+currentWord)
   };
 
   const onTypeHandler = (e) => {
-    const input = e.target.value.toLowerCase().trim();
-    setTypedValue(input);
+    let car = e.target.value;
+    //   const input = e.target.value.toLowerCase().trim();
+    car = car.replace(/w/g, "ው");
+    car = car.replace(/ውe/g, "ወ");
+    car = car.replace(/ውu/g, "ዉ");
+    car = car.replace(/ውi/g, "ዊ");
+    car = car.replace(/ውa/g, "ዋ");
+    car = car.replace(/ውe/g, "ዌ");
+    car = car.replace(/ውé/g, "ዌ");
+    car = car.replace(/ውo/g, "ዎ");
+    setTypedValue(car);
   };
 
-  
+
   const setInputMaxLength = () => {
     if (wordTypeInput.current) {
       wordTypeInput.current.setAttribute('maxlength', currentWord.length);
@@ -235,7 +249,7 @@ console.log("current"+currentWord)
                 lastScore
               }}
               onTypeHandler={onTypeHandler}
-              wordTypeInput={(el) => (wordTypeInput.current = el)}            />
+              wordTypeInput={wordTypeInput} />
           )}
           {gameOver && (
             <GameOver
