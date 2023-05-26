@@ -4,6 +4,7 @@ import WebFont from 'webfontloader';
 import App from './App';
 import 'normalize.css/normalize.css';
 import './styles/style.scss';
+import { Analytics } from '@vercel/analytics/react';
 
 const Main = () => {
   WebFont.load({
@@ -38,5 +39,6 @@ const Main = () => {
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <App />
+    <Analytics />
   </React.StrictMode>,
 )
