@@ -1,6 +1,6 @@
 const wordList = [
   // Borrowed from xkcd password generator which borrowed it from wherever
-  'hey','hello','waa','እናንተ'
+  'እናንተ','እናንተ','እናንተ','እናንተ'
 ];
 
 /* eslint-disable no-param-reassign */

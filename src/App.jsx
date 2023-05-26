@@ -9,7 +9,7 @@ import { generateWord, generateGreet } from './helpers/random-word';
 import correctBgm from './audios/correct.mp3';
 import gameoverBgm from './audios/gameover.mp3';
 import gameBgm from './audios/happy.mp3';
-
+import transcriptionRules from './helpers/Translationrule';
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentWord, setCurrentWord] = useState(undefined);
@@ -200,15 +200,10 @@ const App = () => {
 
   const onTypeHandler = (e) => {
     let car = e.target.value;
-    //   const input = e.target.value.toLowerCase().trim();
-    car = car.replace(/w/g, "ው");
-    car = car.replace(/ውe/g, "ወ");
-    car = car.replace(/ውu/g, "ዉ");
-    car = car.replace(/ውi/g, "ዊ");
-    car = car.replace(/ውa/g, "ዋ");
-    car = car.replace(/ውe/g, "ዌ");
-    car = car.replace(/ውé/g, "ዌ");
-    car = car.replace(/ውo/g, "ዎ");
+    Object.entries(transcriptionRules).forEach(([pattern, replacement]) => {
+      const regex = new RegExp(pattern, 'g');
+      car = car.replace(regex, replacement);
+    });
     setTypedValue(car);
   };
 
