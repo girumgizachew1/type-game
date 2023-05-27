@@ -91,7 +91,7 @@
 }
 
 .modal-large {
-  width: 800px;
+  width: 600px;
   height: 400px;
 }
 
@@ -111,6 +111,44 @@
 
 .buttons-container > * {
   width: calc(50% - 10px); /* Set the width of each item to occupy 50% of the container minus the gap */
+}
+
+
+.modal-content.modal-large {
+  // Your existing styles for modal content
+
+  .support-buttons {
+    margin-top: 20px;
+    padding-left:  2rem;
+    padding-right:  2rem;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+   
+    .buy-me-coffee {
+      background-color: #211918eb;
+      width: 25rem;
+      height: 15rem;
+      // Additional styles for Buy Me a Coffee button
+    }
+    .kofi {
+      background-color: #211918eb;
+      width: 25rem;
+      height: 15rem;
+      // Additional styles for Ko-fi button
+    }
+
+    .buy-me-coffee:hover {
+      background-color: #fff;
+      color: #181414;
+      // Additional styles for Buy Me a Coffee button
+    }
+    .kofi:hover {
+      background-color: #fff;
+      color: #181414;
+      // Additional styles for Ko-fi button
+    }
+  }
 }
 
 
