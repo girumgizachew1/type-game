@@ -8,7 +8,7 @@ const MainScreen = ({ initGame }) => (
       ፈጣኑ እና ትክክለኛ ጸሐፊ ለመሆን የሚያስፈልገው ነገር አለህ? የቃል አሸናፊ ለመሆን በተሰጠው የጊዜ ገደብ ውስጥ እያንዳንዱን ቃል በትክክል ይፃፉ!
     </p>
     <button
-      className="button--secondary button--big"
+      className="button--primary button--big"
       onClick={initGame}
     >
       ጨዋታውን ጀምር 

@@ -1,17 +1,17 @@
 .button--big {
-  font-size: $font-xs;
-  font-weight: 700;
+  font-size: $m-size;
+  font-weight: 400;
   @include transition();
 }
 
 .button--primary {
   border-radius: 20px;
-  margin-top: $padding-xl;
-  @include linearGradient(180deg, $pink, $purple);
-  @include boxShadow($pink);
+  margin-top: $padding-sm;
+  @include linearGradient(180deg, $orange, $red);
+  @include boxShadow($red);
 
   &:hover {
-    @include linearGradient(180deg, darken($pink, 5%), darken($purple, 5%));
+    @include linearGradient(180deg, darken($orange, 5%), darken($red, 5%));
   }
 }
 
