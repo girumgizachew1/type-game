@@ -70,3 +70,65 @@
     color: #fff;
 
   }
+
+  /* CSS for modals */
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background-color: #181414;
+  padding: 20px;
+  border-radius: 8px;
+}
+
+.modal-large {
+  width: 800px;
+  height: 400px;
+}
+
+.modal-extra-large {
+  width: 1200px;
+  height: 800px;
+}
+.buttons-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start; /* Align items to the start of each line */
+  margin-top: 20px;
+  width: 100vh;
+  gap: 20px; /* Add the desired space between items */
+}
+
+.buttons-container > * {
+  width: calc(50% - 10px); /* Set the width of each item to occupy 50% of the container minus the gap */
+}
+
+
+.contact-button {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  background-color: $orange;
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.contact-button:last-child {
+  margin-bottom: 0;
+}
+
+.contact-button:hover {
+  background-color:rgb(255, 98, 0);
+}

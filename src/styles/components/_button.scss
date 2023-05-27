@@ -24,3 +24,13 @@
     @include linearGradient(180deg, darken($orange, 5%), darken($red, 5%));
   }
 }
+
+.button--third {
+  @extend .button--primary;
+  @include linearGradient(180deg, #1f1919, #120f0f);
+  @include boxShadow(#181414);
+
+  &:hover {
+    @include linearGradient(180deg, darken(#1f1919, 5%), darken(#120f0f, 5%));
+  }
+}
