@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { MdOutlineSecurity } from "react-icons/md";
 import { SlNotebook } from "react-icons/sl";
-import { FaCommentsDollar, FaDiscord, FaPatreon ,FaTwitter } from "react-icons/fa";
-import { AiTwotoneLock, AiOutlineMail } from "react-icons/ai";
+import { FaCommentsDollar, FaDiscord, FaPatreon, FaTwitter,FaQuestion, FaBug, FaBriefcase } from "react-icons/fa";
+import { AiTwotoneLock, AiOutlineMail,AiFillMessage } from "react-icons/ai";
 import { BiCodeAlt } from "react-icons/bi";
 import { RiBrushFill } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
@@ -35,10 +35,10 @@ function Footer() {
         <div className="header">
             <div className="header-logo">
                 <nav className="navigation">
-                    <a href="#" className="footernav-link" onClick={openContactModal}>
+                    <a className="footernav-link" onClick={openContactModal}>
                         <AiOutlineMail /> Contact
                     </a>
-                    <a href="#" className="footernav-link" onClick={openSupportModal}>
+                    <a className="footernav-link" onClick={openSupportModal}>
                         <FaCommentsDollar /> Support
                     </a>
                     <a href="https://github.com/girumgizachew1/type-game" className="footernav-link">
@@ -65,24 +65,25 @@ function Footer() {
             {isContactModalOpen && (
                 <div className="modal" onClick={closeModal}>
                     <div className="modal-content modal-large">
-                        <h3 className='beater__main-maintitle' >Contact/አድራሻ</h3>
-                        <p className='beater__main-subtitle' >
-                            Feel free to send an email to girumegizachew@gmail.com.
-                            Please do not send email to spam</p>
-                        <p></p>
-                        <p>The buttons below will open the default mail client.</p>
+                        <h3 className='beater__main-maintitle' >የእውቂያ ገጽ</h3>
+                        <span className='beater__main-subtitle' >
+                        የእርስዎ ሃሳቦች እና ጥያቄዎች ለኛ አስፈላጊ ናቸው፣ እና ግልጽ ግንኙነትን እናበረታታለን። እባክዎን የቀረበውን መረጃ በመጠቀም እኛን ለማነጋገር ነፃነት ይሰማዎ</span>
                         <div className="button">
                             <button className="contact-button" onClick={() => window.location.href = 'mailto:girumegizachew@gmail.com'}>
-                                Question
+                                <FaQuestion/>
+                                <h4>Question</h4>
                             </button>
                             <button className="contact-button" onClick={() => window.open('https://github.com/girumgizachew1/type-game/issues')}>
-                                Bug Report
+                                <FaBug/>
+                                <h4>Bug Report</h4>
                             </button>
                             <button className="contact-button" onClick={() => window.location.href = 'mailto:girumegizachew@gmail.com'}>
-                                Feedback
+                                <AiFillMessage/>
+                                <h4>Feedback</h4>
                             </button>
                             <button className="contact-button" onClick={() => window.location.href = 'mailto:girumegizachew@gmail.com'}>
-                                Business Inquiry
+                                <FaBriefcase/>
+                                <h4>Business Inquiry</h4>
                             </button>
                             {/* Add more buttons here */}
                         </div>
@@ -95,25 +96,29 @@ function Footer() {
                 <div className="modal" onClick={closeModal}>
                     <div className="modal-content modal-large">
                         {/* Modal content for Support */}
-                        <h3 className='beater__main-maintitle' >Support የቃል አሸናፊ</h3>
+                        <h3 className='beater__main-maintitle' >የቃል አሸናፊን ይደግፉ</h3>
                         <span className='beater__main-subtitle' >
-                            Thank you so much for thinking about supporting this project. It would not be possible without you and your continued support.</span>
+                            ይህንን ፕሮጀክት ለመደገፍ በማሰብዎ በጣም እናመሰግናለን። ይህ ሁሉ እንዲቻል ያደረገው የእርስዎ የማይናወጥ ድጋፍ አስፈላጊ ነው።</span>
+
+                        <span className='beater__main-subtitle' >
+                        ለፕሮጀክቱ በማበርከት ሊረዱን ይችላሉ።</span>
                         {/* Add your support form or content here */}
                         <div className="support-buttons">
-                            <a href="https://www.buymeacoffee.com/your-link" target="_blank" rel="noopener noreferrer">
-                        
+                            <a href="https://www.buymeacoffee.com/girumegizaM?new=1" target="_blank" rel="noopener noreferrer">
+
                                 <button className="buy-me-coffee">
-                                    <SiBuymeacoffee/>
-                                   <h4 className='.beater__main-subtitle' > Buy Me a Coffee</h4>
-                                    </button>
+                                    <SiBuymeacoffee />
+                                    <h4 className='' > Buy Me a Coffee</h4>
+                                </button>
                             </a>
                             <a href="https://ko-fi.com/your-link" target="_blank" rel="noopener noreferrer">
                                 <button className="kofi">
-                                    <FaPatreon/>
+                                    <FaPatreon />
                                     <h4>Become a Patron</h4>
-                                    </button>
+                                </button>
                             </a>
                         </div>
+
                     </div>
                 </div>
             )}

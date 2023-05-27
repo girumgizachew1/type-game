@@ -15,7 +15,7 @@ const Music = ({ audioHandler, audioMuted }) => (
         className="beater__audio-control-toggle"
         style={{
           transform: audioMuted ? 'translateX(0)' : 'translateX(100%)',
-          background: audioMuted ? '#cacaca' : '#99da00'
+          background: audioMuted ? '#cacaca' : '#edc162'
         }}
       />
     </div>
