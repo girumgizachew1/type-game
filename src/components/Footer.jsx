@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { MdOutlineSecurity } from "react-icons/md";
 import { SlNotebook } from "react-icons/sl";
-import { FaCommentsDollar, FaDiscord, FaTwitter } from "react-icons/fa";
+import { FaCommentsDollar, FaDiscord, FaPatreon ,FaTwitter } from "react-icons/fa";
 import { AiTwotoneLock, AiOutlineMail } from "react-icons/ai";
 import { BiCodeAlt } from "react-icons/bi";
 import { RiBrushFill } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
+
 
 function Footer() {
     const [isContactModalOpen, setContactModalOpen] = useState(false);
@@ -100,11 +101,17 @@ function Footer() {
                         {/* Add your support form or content here */}
                         <div className="support-buttons">
                             <a href="https://www.buymeacoffee.com/your-link" target="_blank" rel="noopener noreferrer">
-                                <SiBuymeacoffee/>
-                                <button className="buy-me-coffee">Buy Me a Coffee</button>
+                        
+                                <button className="buy-me-coffee">
+                                    <SiBuymeacoffee/>
+                                   <h4 className='.beater__main-subtitle' > Buy Me a Coffee</h4>
+                                    </button>
                             </a>
                             <a href="https://ko-fi.com/your-link" target="_blank" rel="noopener noreferrer">
-                                <button className="kofi">Ko-fi</button>
+                                <button className="kofi">
+                                    <FaPatreon/>
+                                    <h4>Become a Patron</h4>
+                                    </button>
                             </a>
                         </div>
                     </div>

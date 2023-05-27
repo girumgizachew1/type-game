@@ -7,21 +7,20 @@
 .button--primary {
   border-radius: 20px;
   margin-top: $padding-sm;
-  @include linearGradient(180deg, $orange, $red);
-  @include boxShadow($red);
-
+  @include linearGradient(180deg, #fff, #dfdede);
+  @include boxShadow(#dfdede);
   &:hover {
-    @include linearGradient(180deg, darken($orange, 5%), darken($red, 5%));
+    @include linearGradient(180deg, darken(#fff, 5%), darken(#dfdede, 5%));
   }
 }
 
 .button--secondary {
   @extend .button--primary;
-  @include linearGradient(180deg, $orange, $red);
-  @include boxShadow($red);
+  @include linearGradient(180deg, #fff, #dfdede);
+  @include boxShadow(#dfdede);
 
   &:hover {
-    @include linearGradient(180deg, darken($orange, 5%), darken($red, 5%));
+    @include linearGradient(180deg, darken(#fff, 5%), darken(#dfdede, 5%));
   }
 }
 
