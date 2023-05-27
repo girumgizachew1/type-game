@@ -1,3 +1,24 @@
+// main.scss
+
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// Custom Styles
+.beater__header {
+  display: flex;
+  align-items: center;
+}
+
+.beater__logo-wrapper {
+  margin-right: 10px;
+}
+
+.beater__logo-name {
+  font-size: 18px;
+  font-weight: normal;
+  margin-left: 5px;
+}
 /*
  -------------------
  Base

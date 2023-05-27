@@ -3,6 +3,20 @@
   height: 100vh;
   position: relative;
 }
+.beater__header {
+  display: flex;
+  align-items: center;
+}
+
+.beater__logo-wrapper {
+  margin-right: 10px;
+}
+
+.beater__logo-name {
+  font-size: 18px;
+  font-weight: normal;
+  margin-left: 5px;
+}
 
 .beater__main {
   width:70%;
@@ -19,6 +33,7 @@
 }
 
 .beater__main-title {
+  color: #fff;
   font-size: $font-xxl;
   font-weight: 900;
   margin-bottom: $m-size;

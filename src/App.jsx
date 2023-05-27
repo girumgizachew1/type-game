@@ -7,7 +7,7 @@ import Countdowm from './components/Countdown';
 import Loader from './components/Loader';
 import { generateWord, generateGreet } from './helpers/random-word';
 import correctBgm from './audios/correct.mp3';
-import gameoverBgm from './audios/gameover.mp3';
+//import gameoverBgm from './audios/gameover.mp3';
 import gameBgm from './audios/roph.mp3';
 import transcriptionRules from './helpers/Translationrule';
 const App = () => {
@@ -27,7 +27,7 @@ const App = () => {
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
   const sound = {
-    gameover: useRef(new Audio(gameoverBgm)),
+  //  gameover: useRef(new Audio(gameoverBgm)),
     main: useRef(new Audio(gameBgm)),
     correct: useRef(new Audio(correctBgm))
   };
@@ -45,7 +45,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-    const { current: gameoverSound } = sound.gameover;
+   // const { current: gameoverSound } = sound.gameover;
     const { current: mainSound } = sound.main;
     const { current: correctSound } = sound.correct;
 
@@ -93,7 +93,7 @@ const App = () => {
   ]);
 
   useEffect(() => {
-    const { current: gameoverSound } = sound.gameover;
+    //const { current: gameoverSound } = sound.gameover;
     const { current: mainSound } = sound.main;
 
     const gameTimer = setInterval(() => {
@@ -113,8 +113,7 @@ const App = () => {
         setGreet('ደስ የሚል!');
         setScore(false);
 
-        if (!audioMuted) gameoverSound.play();
-        mainSound.volume = 0.1;
+       
       }
     }, 1000);
 
