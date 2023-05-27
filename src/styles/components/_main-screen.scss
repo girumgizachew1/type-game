@@ -1,23 +1,8 @@
 .beater {
   width: 100%;
-  height: 100vh;
+  height: 78vh;
   position: relative;
 }
-.beater__header {
-  display: flex;
-  align-items: center;
-}
-
-.beater__logo-wrapper {
-  margin-right: 10px;
-}
-
-.beater__logo-name {
-  font-size: 18px;
-  font-weight: normal;
-  margin-left: 5px;
-}
-
 .beater__main {
   width:70%;
   max-width: 120rem;
@@ -34,8 +19,14 @@
 
 .beater__main-title {
   color: #fff;
-  font-size: $font-xxl;
-  font-weight: 900;
+  font-size: $font-xl;
+  font-weight: 700;
+  margin-bottom: $m-size;
+}
+.beater__main-maintitle {
+  color: #bba474;
+  font-size: $font-xl;
+  font-weight: 700;
   margin-bottom: $m-size;
 }
 

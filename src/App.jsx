@@ -11,6 +11,7 @@ import correctBgm from './audios/correct.mp3';
 import gameBgm from './audios/roph.mp3';
 import transcriptionRules from './helpers/Translationrule';
 import Header from './components/Header';
+import Footer from './components/Footer';
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentWord, setCurrentWord] = useState(undefined);
@@ -227,6 +228,9 @@ const App = () => {
             <Countdowm initTimer={initTimer} />
           )}
           <Header/>
+          <div className='controller' > 
+            
+          </div>
 
           {gameStarted && countdownFinished && (
             <Game
@@ -272,10 +276,13 @@ const App = () => {
           {!gameStarted && !gameOver && (
             <MainScreen initGame={initGame} />
           )}
+               <div><Footer/></div>
+
         </div>
       ) : (
         <Loader />
-      )}
+        
+      )} 
     </React.Fragment>
   );
 };

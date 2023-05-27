@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 const MainScreen = ({ initGame }) => (
   <div className="beater__main fadeIn">
-    <h1 className="beater__main-title">የቃል አሸናፊ</h1>
+    <h1 className="beater__main-maintitle">የቃል አሸናፊ</h1>
     <p className="beater__main-subtitle">
       ፈጣኑ እና ትክክለኛ ጸሐፊ ለመሆን የሚያስፈልገው ነገር አለህ? የቃል አሸናፊ ለመሆን በተሰጠው የጊዜ ገደብ ውስጥ እያንዳንዱን ቃል በትክክል ይፃፉ!
     </p>

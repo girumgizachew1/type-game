@@ -5,8 +5,8 @@
     align-items: center;
     justify-content: space-between;
     padding: 1rem;
-    padding-left: 25%;
-    padding-right: 25%;
+    padding-left: 20%;
+    padding-right: 20%;
     margin-top: 20px;
     /* background-color: #333; */
     color: #fff;
@@ -29,11 +29,14 @@
   
   
   .navigation {
+
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
+    margin-left: 2rem;
   }
   
   .navigation-link {
+    font-size: 2rem;
     color: #bba474;
     text-decoration: none;
     padding: 0.5rem;
@@ -42,4 +45,28 @@
   .navigation-link:hover {
     color: #f9f5d0;
   }
+
+  .footernav-link {
+    font-size: 1.4rem;
+    color: #bba474;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
   
+  .footernav-link:hover {
+    color: #f9f5d0;
+  }
+
+  .controller {
+    height: 35px;    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-left: 28%;
+    margin-right: 28%;
+    margin-top: 10px;
+   background-color: #1c1513eb; 
+    color: #fff;
+
+  }

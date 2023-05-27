@@ -24,7 +24,6 @@ function Header() {
                 <a href="#" className="navigation-link"><MdNotifications/></a>
                 <a href="#" className="navigation-link"><RiBrushFill/></a>
             </div>
-
         </div>
     );
 }
