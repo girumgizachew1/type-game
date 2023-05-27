@@ -1,0 +1,45 @@
+// Header.scss
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    padding-left: 25%;
+    padding-right: 25%;
+    margin-top: 20px;
+    /* background-color: #333; */
+    color: #fff;
+
+  }
+  .header__text {
+    margin-left: 12px;
+    font-size: 1.5rem; // Adjust the font size as needed
+    white-space: nowrap; // Prevent the text from wrapping to the next line
+    overflow: hidden; // Hide any overflowing text
+    text-overflow: ellipsis; // Show ellipsis (...) when the text exceeds the container width
+  }
+  
+  .header-logo {
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex; // Added
+    flex-direction: row; // Added
+  }
+  
+  
+  .navigation {
+    display: flex;
+    gap: 2rem;
+  }
+  
+  .navigation-link {
+    color: #bba474;
+    text-decoration: none;
+    padding: 0.5rem;
+  }
+  
+  .navigation-link:hover {
+    color: #f9f5d0;
+  }
+  

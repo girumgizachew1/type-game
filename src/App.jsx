@@ -10,6 +10,7 @@ import correctBgm from './audios/correct.mp3';
 //import gameoverBgm from './audios/gameover.mp3';
 import gameBgm from './audios/roph.mp3';
 import transcriptionRules from './helpers/Translationrule';
+import Header from './components/Header';
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentWord, setCurrentWord] = useState(undefined);
@@ -225,6 +226,8 @@ const App = () => {
           {gameStarted && !countdownFinished && (
             <Countdowm initTimer={initTimer} />
           )}
+          <Header/>
+
           {gameStarted && countdownFinished && (
             <Game
               gameData={{
