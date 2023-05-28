@@ -25,7 +25,7 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
 
-  const [timer, setTimer] = useState(200);
+  const [timer, setTimer] = useState(60);
   const [timerBase, setTimerBase] = useState(200);
 
   const [plusScore, setPlusScore] = useState(10);
@@ -41,9 +41,7 @@ const App = () => {
   const [timenotword, setTimeNotWord] = useState(true)
   const [numberofwords, setNumberOfWords] = useState(20)
 
-  const options = {
-    exactly: 1, // Generate exactly 5 words
-  };
+ 
 
   const sound = {
     //  gameover: useRef(new Audio(gameoverBgm)),
@@ -52,7 +50,11 @@ const App = () => {
   };
   let wordTypeInput = useRef(null); // Declare wordTypeInput using useRef
 
-
+  const options = {
+    maxLength: 5,
+    exactly: numberofwords
+  };
+  
   useEffect(() => {
     if (localStorage.wordBeaterStats) {
       const stats = JSON.parse(localStorage.getItem('wordBeaterStats'));
@@ -159,7 +161,7 @@ const App = () => {
   const initGame = () => {
     setGameStarted(true);
     setGameOver(false);
-    setCurrentWord(generateWord(generateWord));
+    setCurrentWord(generateWord(options));
     setScore(0);
     setLevel(1);
 
@@ -257,10 +259,33 @@ const App = () => {
             <div>
               {timenotword ? (
                 <>
-                  <a>30</a>
-                  <a>60</a>
-                  <a>90</a>
-                  <a>120</a>
+                  <a onClick={()=>{
+                    if(!gameStarted)
+                    setTimer(30)}}  
+                  style={{
+                    color: timer === 30 ? '#f9f5d0' : '#bba474'
+                  }}
+                  >30</a>
+                  <a onClick={()=>{
+                    if(!gameStarted)
+                    setTimer(60)}}
+                  style={{
+                    color: timer === 60 ? '#f9f5d0' : '#bba474'
+                  }}  >60</a>
+                  <a onClick={()=>{ 
+                    if(!gameStarted)
+                    setTimer(90)
+                  }}
+                  style={{
+                    color: timer === 90 ? '#f9f5d0' : '#bba474'
+                  }}
+                  >90</a>
+                  <a onClick={()=>{
+                    if(!gameStarted)
+                    setTimer(120)}}
+                  style={{
+                    color: timer === 120 ? '#f9f5d0' : '#bba474'
+                  }} >120</a>
                 </>
               ) : (
                 <>
