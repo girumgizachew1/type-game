@@ -12,7 +12,7 @@ import gameBgm from './audios/roph.mp3';
 import transcriptionRules from './helpers/Translationrule';
 import Header from './components/Header';
 import Footer from './components/Footer';
-import { BiHash,BiTime } from "react-icons/bi";
+import { BiHash, BiTime } from "react-icons/bi";
 
 import { BsFillFileWordFill } from "react-icons/bs";
 import { VscSettings } from "react-icons/vsc";
@@ -24,8 +24,10 @@ const App = () => {
   const [typedValue, setTypedValue] = useState('');
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
+
   const [timer, setTimer] = useState(200);
   const [timerBase, setTimerBase] = useState(200);
+
   const [plusScore, setPlusScore] = useState(10);
   const [gameOver, setGameOver] = useState(false);
   const [audioMuted, setAudioMuted] = useState(false);
@@ -34,6 +36,15 @@ const App = () => {
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
 
+
+
+  const [timenotword, setTimeNotWord] = useState(true)
+  const [numberofwords, setNumberOfWords] = useState(20)
+
+  const options = {
+    exactly: 1, // Generate exactly 5 words
+  };
+
   const sound = {
     //  gameover: useRef(new Audio(gameoverBgm)),
     main: useRef(new Audio(gameBgm)),
@@ -41,10 +52,7 @@ const App = () => {
   };
   let wordTypeInput = useRef(null); // Declare wordTypeInput using useRef
 
-  const options = {
-    exactly: 5, // Generate exactly 5 words
-    separator: ' ' // Use a comma followed by a space as the separator
-  };
+
   useEffect(() => {
     if (localStorage.wordBeaterStats) {
       const stats = JSON.parse(localStorage.getItem('wordBeaterStats'));
@@ -64,28 +72,15 @@ const App = () => {
     setInputMaxLength();
 
     if (typedValue === currentWord) {
-      setCurrentWord(generateWord());
-      setTypedValue('');
-      setTimer(timerBase);
-      setScore((prevScore) => prevScore + plusScore);
-      setGreet(generateGreet());
-
       if (!audioMuted) {
         correctSound.currentTime = 0;
         correctSound.play();
       }
-
-      if (score >= 4490) {
-        setGameStateOnComplete(3, 6, 3, 25); // lvl 6: 3s
-      } else if (score >= 3990) {
-        setGameStateOnComplete(6, 5, 6, 20); // lvl 5: 6s
-      } else if (score >= 2490) {
-        setGameStateOnComplete(9, 4, 9, 20); // lvl 4: 9s
-      } else if (score >= 1490) {
-        setGameStateOnComplete(12, 3, 12, 20); // lvl 3: 12s
-      } else if (score >= 490) {
-        setGameStateOnComplete(25, 2, 15, 15); // lvl 2: 15s
-      }
+      setCurrentWord(generateWord(options));
+      setTypedValue('');
+      setTimer(timerBase);
+      setScore((prevScore) => prevScore + plusScore);
+      setGreet(generateGreet());
     }
 
     if (audioMuted) {
@@ -109,23 +104,24 @@ const App = () => {
     const { current: mainSound } = sound.main;
 
     const gameTimer = setInterval(() => {
-      setTimer((prevTimer) => prevTimer - 1);
+      console.log(countdownFinished)
+      if (countdownFinished) {
+        setTimer((prevTimer) => prevTimer - 1);
 
-      if (timer <= 0 || gameOver) {
-        clearInterval(gameTimer);
-        updateHighScore();
-        setGameOver(true);
-        setCountdownFinished(false);
-        setGameStarted(false);
-        setTimer(20);
-        setTimerBase(20);
-        setTypedValue('');
-        setPlusScore(10);
-        setCurrentWord(undefined);
-        setGreet('ደስ የሚል!');
-        setScore(false);
-
-
+        if (timer <= 0 || gameOver) {
+          clearInterval(gameTimer);
+          updateHighScore();
+          setGameOver(true);
+          setCountdownFinished(false);
+          setGameStarted(false);
+          setTimer(200);
+          setTimerBase(200);
+          setTypedValue('');
+          setPlusScore(10);
+          setCurrentWord(undefined);
+          setGreet('ደስ የሚል!');
+          setScore(false);
+        }
       }
     }, 1000);
 
@@ -139,6 +135,7 @@ const App = () => {
       clearInterval(gameTimer);
     };
   }, [
+    countdownFinished,
     plusScore,
     score,
     timerBase,
@@ -162,7 +159,7 @@ const App = () => {
   const initGame = () => {
     setGameStarted(true);
     setGameOver(false);
-    setCurrentWord(generateWord());
+    setCurrentWord(generateWord(generateWord));
     setScore(0);
     setLevel(1);
 
@@ -240,23 +237,59 @@ const App = () => {
             <Countdowm initTimer={initTimer} />
           )}
           <Header />
-          <div className='controller' >
+          <div className='controller'>
             <div>
-              <a> @ punctuation</a>
-              <a><BiHash/> Number</a>
+              <a>ሥርዓተ ነጥብ</a>
+              <a><BiHash /> ቁጥር</a>
             </div>
             <div>
-              <a><BiTime/> time</a>
-              <a> <BsFillFileWordFill/>  Word</a>
+              <a onClick={() => { setTimeNotWord(true) }}
+                style={{
+                  color: timenotword ? '#f9f5d0' : '#bba474'
+                }}
+              ><BiTime /> ጊዜ</a>
+              <a onClick={() => { setTimeNotWord(false) }}
+                style={{
+                  color: !timenotword ? '#f9f5d0' : '#bba474'
+                }}
+              ><BsFillFileWordFill /> ቃል</a>
             </div>
             <div>
-              <a>30</a>
-              <a>60</a>
-              <a>90</a>
-              <a>120</a>
-              <a><VscSettings/></a>
+              {timenotword ? (
+                <>
+                  <a>30</a>
+                  <a>60</a>
+                  <a>90</a>
+                  <a>120</a>
+                </>
+              ) : (
+                <>
+                  <a onClick={() => { setNumberOfWords(20) }}
+                    style={{
+                      color: numberofwords === 20 ? '#f9f5d0' : '#bba474'
+                    }} >20</a>
+                  <a onClick={() => { setNumberOfWords(40) }}
+                    style={{
+                      color: numberofwords === 40 ? '#f9f5d0' : '#bba474'
+                    }} >40</a>
+
+                  <a onClick={() => { setNumberOfWords(60) }}
+                    style={{
+                      color: numberofwords === 60 ? '#f9f5d0' : '#bba474'
+                    }}
+                  >60</a>
+
+                  <a onClick={() => { setNumberOfWords(80) }}
+                    style={{
+                      color: numberofwords === 80 ? '#f9f5d0': '#bba474'
+                    }}
+                  >80</a>
+                </>
+              )}
+              <a><VscSettings /></a>
             </div>
           </div>
+
 
           {gameStarted && countdownFinished && (
             <Game
