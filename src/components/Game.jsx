@@ -63,6 +63,16 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
           <p>ይህን ቃል ይጻፉ</p>
           <h1 ref={visibleCurrentWord}>{currentWord}</h1>
         </div>
+        <input
+          autoFocus
+          className="beater__game-input"
+          onChange={onTypeHandler}
+          onKeyUp={onKeyUpHandler}
+          placeholder="መፀሀፍ ይጀምሩ"
+          ref={wordTypeInput}
+          type="text"
+          value={typedValue}
+        />
         <div className="beater__game-widgets">
           <div className="beater__game-widgets-wrapper">
             <span>ደረጃ</span>
@@ -88,16 +98,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
             </div>
           </div>
         </div>
-        <input
-          autoFocus
-          className="beater__game-input"
-          onChange={onTypeHandler}
-          onKeyUp={onKeyUpHandler}
-          placeholder="መፀሀፍ ይጀምሩ"
-          ref={wordTypeInput}
-          type="text"
-          value={typedValue}
-        />
+       
       </div>
     </div>
   );

@@ -39,7 +39,7 @@ const App = () => {
 
 
   const [timenotword, setTimeNotWord] = useState(true)
-  const [numberofwords, setNumberOfWords] = useState(2)
+  const [numberofwords, setNumberOfWords] = useState(20)
 
  
 
