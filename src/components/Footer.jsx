@@ -7,7 +7,6 @@ import { BiCodeAlt } from "react-icons/bi";
 import { RiBrushFill } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
 
-
 function Footer() {
     const [isContactModalOpen, setContactModalOpen] = useState(false);
     const [isSupportModalOpen, setSupportModalOpen] = useState(false);

@@ -1,87 +1,117 @@
 // Header.scss
 
 .header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  padding-left: 20%;
+  padding-right: 20%;
+  margin-top: 20px;
+  /* background-color: #333; */
+  color: #fff;
+
+}
+
+.header__text {
+  color: #bba474;
+  margin-left: 12px;
+  font-size: 1.5rem; // Adjust the font size as needed
+  white-space: nowrap; // Prevent the text from wrapping to the next line
+  overflow: hidden; // Hide any overflowing text
+  text-overflow: ellipsis; // Show ellipsis (...) when the text exceeds the container width
+}
+
+.header-logo {
+  font-size: 2rem;
+  font-weight: bold;
+  display: flex; // Added
+  flex-direction: row; // Added
+}
+
+
+.navigation {
+
+  display: flex;
+  gap: 1.5rem;
+  margin-left: 2rem;
+}
+
+.navigation-link {
+  font-size: 2rem;
+  color: #bba474;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.navigation-link:hover {
+  color: #f9f5d0;
+}
+
+.footernav-link {
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: #bba474;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+
+.footernav-link:hover {
+  color: #f9f5d0;
+}
+
+.controller {
+  height: 35px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  margin-left: 35%;
+  margin-right: 35%;
+  margin-top: 10px;
+
+  background-color: #211918eb;
+  color: #fff;
+
+  >div {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    padding-left: 20%;
-    padding-right: 20%;
-    margin-top: 20px;
-    /* background-color: #333; */
-    color: #fff;
+    gap: 10px;
 
-  }
-  .header__text {
-    color: #bba474;
-    margin-left: 12px;
-    font-size: 1.5rem; // Adjust the font size as needed
-    white-space: nowrap; // Prevent the text from wrapping to the next line
-    overflow: hidden; // Hide any overflowing text
-    text-overflow: ellipsis; // Show ellipsis (...) when the text exceeds the container width
-  }
-  
-  .header-logo {
-    font-size: 2rem;
-    font-weight: bold;
-    display: flex; // Added
-    flex-direction: row; // Added
-  }
-  
-  
-  .navigation {
+    &:not(:last-child)::after {
+      content: '|';
+      margin: 0 0.5rem;
+    }
+    >a {
+      cursor: pointer;
+      margin-right: 0.5rem;
+      font-size: 1.5rem;
+      color: #bba474;
+      text-decoration: none;
 
-    display: flex;
-    gap: 1.5rem;
-    margin-left: 2rem;
+      &:last-child {
+        margin-right: 0;
+      }
+      >a:hover{
+        color: #f9f5d0;
+      }
+    }
   }
-  
-  .navigation-link {
-    font-size: 2rem;
-    color: #bba474;
-    text-decoration: none;
-    padding: 0.5rem;
-  }
-  
-  .navigation-link:hover {
-    color: #f9f5d0;
-  }
+}
 
-  .footernav-link {
-    cursor: pointer;
-    font-size: 1.4rem;
-    color: #bba474;
-    text-decoration: none;
-    padding: 0.5rem;
-  }
-  
-  .footernav-link:hover {
-    color: #f9f5d0;
-  }
 
-  .controller {
-    height: 35px;    
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 1rem;
-    margin-left: 28%;
-    margin-right: 28%;
-    margin-top: 10px;
-   background-color: #211918eb; 
-    color: #fff;
 
-  }
-
-  /* CSS for modals */
+/* CSS for modals */
 .modal {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background-color: rgba(0, 0, 0, 0.5);
+  /* Semi-transparent background */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -102,18 +132,22 @@
   width: 1200px;
   height: 800px;
 }
+
 .buttons-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  align-items: flex-start; /* Align items to the start of each line */
+  align-items: flex-start;
+  /* Align items to the start of each line */
   margin-top: 20px;
   width: 100vh;
-  gap: 20px; /* Add the desired space between items */
+  gap: 20px;
+  /* Add the desired space between items */
 }
 
-.buttons-container > * {
-  width: calc(50% - 10px); /* Set the width of each item to occupy 50% of the container minus the gap */
+.buttons-container>* {
+  width: calc(50% - 10px);
+  /* Set the width of each item to occupy 50% of the container minus the gap */
 }
 
 
@@ -122,12 +156,12 @@
 
   .support-buttons {
     margin-top: 20px;
-    padding-left:  2rem;
-    padding-right:  2rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     display: flex;
     justify-content: space-between;
     width: 100%;
-   
+
     .buy-me-coffee {
       background-color: #211918eb;
       width: 25rem;
@@ -135,6 +169,7 @@
       color: #fff;
       // Additional styles for Buy Me a Coffee button
     }
+
     .kofi {
       background-color: #211918eb;
       width: 25rem;
@@ -148,6 +183,7 @@
       color: #181414;
       // Additional styles for Buy Me a Coffee button
     }
+
     .kofi:hover {
       background-color: #fff;
       color: #181414;

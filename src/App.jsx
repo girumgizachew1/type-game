@@ -12,6 +12,11 @@ import gameBgm from './audios/roph.mp3';
 import transcriptionRules from './helpers/Translationrule';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import { BiHash,BiTime } from "react-icons/bi";
+
+import { BsFillFileWordFill } from "react-icons/bs";
+import { VscSettings } from "react-icons/vsc";
+
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentWord, setCurrentWord] = useState(undefined);
@@ -19,8 +24,8 @@ const App = () => {
   const [typedValue, setTypedValue] = useState('');
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
-  const [timer, setTimer] = useState(20);
-  const [timerBase, setTimerBase] = useState(30);
+  const [timer, setTimer] = useState(200);
+  const [timerBase, setTimerBase] = useState(200);
   const [plusScore, setPlusScore] = useState(10);
   const [gameOver, setGameOver] = useState(false);
   const [audioMuted, setAudioMuted] = useState(false);
@@ -28,13 +33,18 @@ const App = () => {
   const [highScore, setHighScore] = useState(undefined);
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
+
   const sound = {
-  //  gameover: useRef(new Audio(gameoverBgm)),
+    //  gameover: useRef(new Audio(gameoverBgm)),
     main: useRef(new Audio(gameBgm)),
     correct: useRef(new Audio(correctBgm))
   };
   let wordTypeInput = useRef(null); // Declare wordTypeInput using useRef
 
+  const options = {
+    exactly: 5, // Generate exactly 5 words
+    separator: ' ' // Use a comma followed by a space as the separator
+  };
   useEffect(() => {
     if (localStorage.wordBeaterStats) {
       const stats = JSON.parse(localStorage.getItem('wordBeaterStats'));
@@ -47,7 +57,7 @@ const App = () => {
   }, []);
 
   useEffect(() => {
-   // const { current: gameoverSound } = sound.gameover;
+    // const { current: gameoverSound } = sound.gameover;
     const { current: mainSound } = sound.main;
     const { current: correctSound } = sound.correct;
 
@@ -115,7 +125,7 @@ const App = () => {
         setGreet('ደስ የሚል!');
         setScore(false);
 
-       
+
       }
     }, 1000);
 
@@ -146,6 +156,8 @@ const App = () => {
     setTimer(t);
     setPlusScore(ps);
   };
+
+
 
   const initGame = () => {
     setGameStarted(true);
@@ -211,7 +223,7 @@ const App = () => {
 
   const setInputMaxLength = () => {
     if (wordTypeInput.current) {
-      wordTypeInput.current.setAttribute('maxlength', currentWord.length+1);
+      wordTypeInput.current.setAttribute('maxlength', currentWord.length + 1);
     }
   };
 
@@ -227,9 +239,23 @@ const App = () => {
           {gameStarted && !countdownFinished && (
             <Countdowm initTimer={initTimer} />
           )}
-          <Header/>
-          <div className='controller' > 
-            
+          <Header />
+          <div className='controller' >
+            <div>
+              <a> @ punctuation</a>
+              <a><BiHash/> Number</a>
+            </div>
+            <div>
+              <a><BiTime/> time</a>
+              <a> <BsFillFileWordFill/>  Word</a>
+            </div>
+            <div>
+              <a>30</a>
+              <a>60</a>
+              <a>90</a>
+              <a>120</a>
+              <a><VscSettings/></a>
+            </div>
           </div>
 
           {gameStarted && countdownFinished && (
@@ -276,13 +302,13 @@ const App = () => {
           {!gameStarted && !gameOver && (
             <MainScreen initGame={initGame} />
           )}
-               <div><Footer/></div>
+          <div><Footer /></div>
 
         </div>
       ) : (
         <Loader />
-        
-      )} 
+
+      )}
     </React.Fragment>
   );
 };
