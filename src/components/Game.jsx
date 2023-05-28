@@ -24,18 +24,18 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
     5: ['#ED06FB', 'rgba(237, 6, 251, .4)'],
     6: ['#9B1BEA', 'rgba(155, 27, 234, .4)']
   };
-
   const onKeyUpHandler = (e) => {
     const input = e.target.value;
     const regExp = new RegExp(input, 'g');
-
-    visibleCurrentWord.current.innerHTML = currentWord;
+    visibleCurrentWord.current.innerHTML =currentWord
+    
     if (input.trim() !== '') {
       visibleCurrentWord.current.innerHTML = currentWord.replace(regExp, (match) => {
         return `<span class="matched">${match}</span>`;
       });
     }
   };
+  
 
   useEffect(() => {
     if (currentWord === typedValue) {

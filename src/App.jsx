@@ -35,11 +35,11 @@ const App = () => {
   const [highScore, setHighScore] = useState(undefined);
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
-
+  const [concatenatedString, setConcatenatedString] = useState(undefined)
 
 
   const [timenotword, setTimeNotWord] = useState(true)
-  const [numberofwords, setNumberOfWords] = useState(20)
+  const [numberofwords, setNumberOfWords] = useState(2)
 
  
 
@@ -70,7 +70,7 @@ const App = () => {
     // const { current: gameoverSound } = sound.gameover;
     const { current: mainSound } = sound.main;
     const { current: correctSound } = sound.correct;
-
+// const concatenatedString = currentWord.join(' '); 
     setInputMaxLength();
 
     if (typedValue === currentWord) {
@@ -78,7 +78,7 @@ const App = () => {
         correctSound.currentTime = 0;
         correctSound.play();
       }
-      setCurrentWord(generateWord(options));
+      setCurrentWord(generateWord(options).join(' '));   
       setTypedValue('');
       setTimer(timerBase);
       setScore((prevScore) => prevScore + plusScore);
@@ -161,7 +161,7 @@ const App = () => {
   const initGame = () => {
     setGameStarted(true);
     setGameOver(false);
-    setCurrentWord(generateWord(options));
+    setCurrentWord(generateWord(options).join(' '));
     setScore(0);
     setLevel(1);
 
