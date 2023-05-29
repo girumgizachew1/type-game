@@ -29,7 +29,6 @@ const Countdown = ({ initTimer }) => {
       >
         <h1 className='beater__countdown-count' >!</h1>
       </div>
-      <h1 className="beater__countdown-count">{count}</h1>
     </div>
   );
 };
