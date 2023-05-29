@@ -25,8 +25,8 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
 
-  const [timer, setTimer] = useState(90);
-  const [timerBase, setTimerBase] = useState(90);
+  const [timer, setTimer] = useState(80);
+  const [timerBase, setTimerBase] = useState(80);
 
   const [plusScore, setPlusScore] = useState(10);
   const [gameOver, setGameOver] = useState(false);
