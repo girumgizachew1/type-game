@@ -13,7 +13,7 @@ import transcriptionRules from './helpers/Translationrule';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import { BiHash, BiTime } from "react-icons/bi";
-
+import { convertToAmharic } from 'amharic-converter';
 import { BsFillFileWordFill } from "react-icons/bs";
 import { VscSettings } from "react-icons/vsc";
 
@@ -212,13 +212,10 @@ const App = () => {
     setInputMaxLength();
   };
 
-  const onTypeHandler = (e) => {
-    let car = e.target.value;
-    Object.entries(transcriptionRules).forEach(([pattern, replacement]) => {
-      const regex = new RegExp(pattern, 'g');
-      car = car.replace(regex, replacement);
-    });
-    setTypedValue(car);
+  const onTypeHandler = (event) => {
+    const englishText = event.target.value;
+    const convertedText = convertToAmharic(englishText);
+    setTypedValue(convertedText);
   };
 
 
