@@ -25,8 +25,8 @@ const App = () => {
   const [score, setScore] = useState(0);
   const [level, setLevel] = useState(1);
 
-  const [timer, setTimer] = useState(60);
-  const [timerBase, setTimerBase] = useState(60);
+  const [timer, setTimer] = useState(90);
+  const [timerBase, setTimerBase] = useState(90);
 
   const [plusScore, setPlusScore] = useState(10);
   const [gameOver, setGameOver] = useState(false);
@@ -38,7 +38,7 @@ const App = () => {
 
 
   const [timenotword, setTimeNotWord] = useState(true)
-  const [numberofwords, setNumberOfWords] = useState(20)
+  const [numberofwords, setNumberOfWords] = useState(30)
   const [timeTaken, setTimeTaken] = useState(0)
   const [wordWritten, setWordWritten] = useState(0)
   const sound = {
