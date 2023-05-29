@@ -16,19 +16,19 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
     typedValue
   } = gameData;
 
-  
+
   const onKeyUpHandler = (e) => {
     const input = e.target.value;
     const regExp = new RegExp(input, 'g');
-    visibleCurrentWord.current.innerHTML =currentWord
-    
+    visibleCurrentWord.current.innerHTML = currentWord
+
     if (input.trim() !== '') {
       visibleCurrentWord.current.innerHTML = currentWord.replace(regExp, (match) => {
         return `<span class="matched">${match}</span>`;
       });
     }
   };
-  
+
 
   useEffect(() => {
     if (currentWord === typedValue) {
@@ -87,7 +87,15 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
             </div>
           </div>
         </div>
-       
+        <div className='beater__main-actions' >
+          <a className="navigation-link" onClick={initGame}>
+            <BsArrowRepeat />
+          </a>
+          <a className="navigation-link" onClick={quitGame}>
+            <AiOutlineCloseCircle />
+          </a>
+        </div>
+
       </div>
     </div>
   );

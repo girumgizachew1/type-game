@@ -17,6 +17,9 @@ import { convertToAmharic } from 'amharic-converter';
 import { BsFillFileWordFill } from "react-icons/bs";
 import { VscSettings } from "react-icons/vsc";
 
+import { BsArrowRepeat } from "react-icons/bs";
+import { AiOutlineCloseCircle } from "react-icons/ai";
+
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
   const [currentWord, setCurrentWord] = useState(undefined);
@@ -335,7 +338,9 @@ const App = () => {
                 lastScore
               }}
               onTypeHandler={onTypeHandler}
-              wordTypeInput={wordTypeInput} />
+              wordTypeInput={wordTypeInput} 
+              initGame={initGame}
+              quitGame={quitGame}/>
           )}
           {gameOver && (
             <GameOver
@@ -363,6 +368,7 @@ const App = () => {
           {!gameStarted && !gameOver && (
             <MainScreen initGame={initGame} />
           )}
+           
           <div><Footer /></div>
 
         </div>
