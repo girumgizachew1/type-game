@@ -16,14 +16,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
     typedValue
   } = gameData;
 
-  const levelColor = {
-    1: ['#fff', 'rgba(255, 255, 255, .4)'],
-    2: ['#488ca1', 'rgba(72, 140, 161, .4)'],
-    3: ['#99da00', 'rgba(153, 218, 0, .4)'],
-    4: ['#F9E606', 'rgba(249, 230, 6, .4)'],
-    5: ['#ED06FB', 'rgba(237, 6, 251, .4)'],
-    6: ['#9B1BEA', 'rgba(155, 27, 234, .4)']
-  };
+  
   const onKeyUpHandler = (e) => {
     const input = e.target.value;
     const regExp = new RegExp(input, 'g');
@@ -61,7 +54,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
         <div className="beater__game-greet" ref={greetingWrapper} />
         <div className="beater__game-current">
           <p>ይህን ቃል ይጻፉ</p>
-          <h1 ref={visibleCurrentWord}>{currentWord}</h1>
+          <h2 ref={visibleCurrentWord}>{currentWord}</h2>
         </div>
         <input
           autoFocus
@@ -76,25 +69,21 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
         <div className="beater__game-widgets">
           <div className="beater__game-widgets-wrapper">
             <span>ደረጃ</span>
-            <h2
-              style={{
-                color: levelColor[level][0],
-                textShadow: `0 0 15px ${levelColor[level][1]}`
-              }}
+            <h3
             >
               {level}
-            </h2>
+            </h3>
           </div>
           <div className="beater__game-widgets-wrapper">
             <span>ሰዓት</span>
-            <h2 className={timer <= 3 ? 'timeRunningOut' : null}>
+            <h3 className={timer <= 3 ? 'timeRunningOut' : null}>
               {timer}
-            </h2>
+            </h3>
           </div>
           <div className="beater__game-widgets-wrapper">
             <span>ውጤት</span>
             <div ref={plusScoreWrapper}>
-              <h2>{score}</h2>
+              <h3>{score}</h3>
             </div>
           </div>
         </div>

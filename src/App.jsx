@@ -26,7 +26,7 @@ const App = () => {
   const [level, setLevel] = useState(1);
 
   const [timer, setTimer] = useState(60);
-  const [timerBase, setTimerBase] = useState(200);
+  const [timerBase, setTimerBase] = useState(60);
 
   const [plusScore, setPlusScore] = useState(10);
   const [gameOver, setGameOver] = useState(false);
@@ -39,7 +39,7 @@ const App = () => {
 
 
   const [timenotword, setTimeNotWord] = useState(true)
-  const [numberofwords, setNumberOfWords] = useState(20)
+  const [numberofwords, setNumberOfWords] = useState(2)
 
  
 
@@ -78,6 +78,7 @@ const App = () => {
         correctSound.currentTime = 0;
         correctSound.play();
       }
+      setLevel(level+1)
       setCurrentWord(generateWord(options).join(' '));   
       setTypedValue('');
       setTimer(timerBase);
@@ -116,8 +117,7 @@ const App = () => {
           setGameOver(true);
           setCountdownFinished(false);
           setGameStarted(false);
-          setTimer(200);
-          setTimerBase(200);
+          setTimer(timerBase);
           setTypedValue('');
           setPlusScore(10);
           setCurrentWord(undefined);
@@ -161,7 +161,9 @@ const App = () => {
   const initGame = () => {
     setGameStarted(true);
     setGameOver(false);
+    setTimer(timerBase)
     setCurrentWord(generateWord(options).join(' '));
+    setPlusScore(10*numberofwords)
     setScore(0);
     setLevel(1);
 
@@ -261,30 +263,30 @@ const App = () => {
                 <>
                   <a onClick={()=>{
                     if(!gameStarted)
-                    setTimer(30)}}  
+                    setTimerBase(30)}}  
                   style={{
-                    color: timer === 30 ? '#f9f5d0' : '#bba474'
+                    color: timerBase === 30 ? '#f9f5d0' : '#bba474'
                   }}
                   >30</a>
                   <a onClick={()=>{
                     if(!gameStarted)
-                    setTimer(60)}}
+                    setTimerBase(60)}}
                   style={{
-                    color: timer === 60 ? '#f9f5d0' : '#bba474'
+                    color: timerBase === 60 ? '#f9f5d0' : '#bba474'
                   }}  >60</a>
                   <a onClick={()=>{ 
                     if(!gameStarted)
-                    setTimer(90)
+                    setTimerBase(90)
                   }}
                   style={{
-                    color: timer === 90 ? '#f9f5d0' : '#bba474'
+                    color: timerBase === 90 ? '#f9f5d0' : '#bba474'
                   }}
                   >90</a>
                   <a onClick={()=>{
                     if(!gameStarted)
-                    setTimer(120)}}
+                    setTimerBase(120)}}
                   style={{
-                    color: timer === 120 ? '#f9f5d0' : '#bba474'
+                    color: timerBase === 120 ? '#f9f5d0' : '#bba474'
                   }} >120</a>
                 </>
               ) : (
