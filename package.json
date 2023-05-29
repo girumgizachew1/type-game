@@ -12,12 +12,15 @@
   "dependencies": {
     "@vercel/analytics": "^1.0.1",
     "amharic-converter": "^1.0.1",
+    "chart.js": "^4.3.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
+    "react-chartjs-2": "^5.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^4.8.0",
     "sass": "^1.62.1",
+    "victory": "^36.6.10",
     "webfontloader": "^1.6.28"
   },
   "devDependencies": {

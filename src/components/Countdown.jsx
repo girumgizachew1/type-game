@@ -19,11 +19,17 @@ const Countdown = ({ initTimer }) => {
 
   return (
     <div className="beater__countdown">
-      <h1>ጨዋታው በ </h1>
-      <h1 className="beater__countdown-count">{count} sec</h1>
-      <br />
-      <h1> ውስጥ ይጀምራል </h1>
-      <p>ይዘጋጁ!</p>
+      <div
+        className="beater__countdown-circle"
+        style={{
+
+          animationDuration: `${count}s`,
+          animationPlayState: count === 0 ? 'paused' : 'running',
+        }}
+      >
+        <h1 className='beater__countdown-count' >!</h1>
+      </div>
+      <h1 className="beater__countdown-count">{count}</h1>
     </div>
   );
 };

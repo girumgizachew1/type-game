@@ -161,8 +161,22 @@
 
 .beater__countdown-count {
   font-size: $font-xxl;
-  color: $yellow;
+  color: #bba474;
   @include animation(pulse, 1s, infinite);
+}
+.beater__countdown-circle {
+  animation-name: rotate;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 

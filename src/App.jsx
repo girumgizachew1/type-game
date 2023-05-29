@@ -35,14 +35,12 @@ const App = () => {
   const [highScore, setHighScore] = useState(undefined);
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
-  const [concatenatedString, setConcatenatedString] = useState(undefined)
 
 
   const [timenotword, setTimeNotWord] = useState(true)
   const [numberofwords, setNumberOfWords] = useState(2)
-
- 
-
+  const [timeTaken, setTimeTaken] = useState(0)
+  const [wordWritten, setWordWritten] = useState(0)
   const sound = {
     //  gameover: useRef(new Audio(gameoverBgm)),
     main: useRef(new Audio(gameBgm)),
@@ -81,6 +79,8 @@ const App = () => {
       setLevel(level+1)
       setCurrentWord(generateWord(options).join(' '));   
       setTypedValue('');
+      setTimeTaken((prevTime)=> prevTime + (timerBase-timer))
+      setWordWritten((prevWrittenWord) =>prevWrittenWord + numberofwords )
       setTimer(timerBase);
       setScore((prevScore) => prevScore + plusScore);
       setGreet(generateGreet());
@@ -122,7 +122,7 @@ const App = () => {
           setPlusScore(10);
           setCurrentWord(undefined);
           setGreet('ደስ የሚል!');
-          setScore(false);
+   //       setScore(false);
         }
       }
     }, 1000);
@@ -166,6 +166,8 @@ const App = () => {
     setPlusScore(10*numberofwords)
     setScore(0);
     setLevel(1);
+    setTimeTaken(0)
+    setWordWritten(0)
 
     sound.main.current.volume = 0.2;
 
@@ -350,7 +352,9 @@ const App = () => {
                 plusScore,
                 greet,
                 highScore,
-                lastScore
+                lastScore,
+                timeTaken,
+                wordWritten,
               }}
               initGame={initGame}
               quitGame={quitGame}
