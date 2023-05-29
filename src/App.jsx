@@ -38,7 +38,7 @@ const App = () => {
 
 
   const [timenotword, setTimeNotWord] = useState(true)
-  const [numberofwords, setNumberOfWords] = useState(2)
+  const [numberofwords, setNumberOfWords] = useState(20)
   const [timeTaken, setTimeTaken] = useState(0)
   const [wordWritten, setWordWritten] = useState(0)
   const sound = {
