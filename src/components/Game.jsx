@@ -1,7 +1,9 @@
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { BsArrowRepeat } from "react-icons/bs";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
-const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
+const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) => {
   const visibleCurrentWord = useRef(null);
   const plusScoreWrapper = useRef(null);
   const greetingWrapper = useRef(null);
@@ -47,6 +49,20 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
       }, 1000);
     }
   }, [currentWord, greet, plusScore, typedValue]);
+  const handleKeyPress = (e) => {
+    if (e.key === 'Escape') {
+      quitGame();
+    } else if (e.key === 'Enter' && e.ctrlKey) {
+      initGame();
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress);
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress);
+    };
+  }, [initGame, quitGame]);
 
   return (
     <div className="beater__game fadeIn">
@@ -89,11 +105,17 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput }) => {
         </div>
         <div className='beater__main-actions' >
           <a className="navigation-link" onClick={initGame}>
-            <BsArrowRepeat />
+            <BsArrowRepeat /> <span className='navigation-link ' >Repeat</span>
           </a>
           <a className="navigation-link" onClick={quitGame}>
-            <AiOutlineCloseCircle />
+            <AiOutlineCloseCircle />  <span className='navigation-link ' >exit</span>
           </a>
+        </div>
+        <div className='beater__main-actions' >
+          <span>Ctrl + Enter</span> 
+          <span style={{ backgroundColor: 'black', color: 'white', padding: '0.2rem' }}>Esc</span>
+
+          
         </div>
 
       </div>

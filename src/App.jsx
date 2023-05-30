@@ -17,8 +17,6 @@ import { convertToAmharic } from 'amharic-converter';
 import { BsFillFileWordFill } from "react-icons/bs";
 import { VscSettings } from "react-icons/vsc";
 
-import { BsArrowRepeat } from "react-icons/bs";
-import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -39,7 +37,7 @@ const App = () => {
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
 
-
+  const [customTime , setCustomTime]= useState(false)
   const [timenotword, setTimeNotWord] = useState(true)
   const [numberofwords, setNumberOfWords] = useState(30)
   const [timeTaken, setTimeTaken] = useState(0)
@@ -55,7 +53,7 @@ const App = () => {
     maxLength: 5,
     exactly: numberofwords
   };
-  
+
   useEffect(() => {
     if (localStorage.wordBeaterStats) {
       const stats = JSON.parse(localStorage.getItem('wordBeaterStats'));
@@ -71,7 +69,7 @@ const App = () => {
     // const { current: gameoverSound } = sound.gameover;
     const { current: mainSound } = sound.main;
     const { current: correctSound } = sound.correct;
-// const concatenatedString = currentWord.join(' '); 
+    // const concatenatedString = currentWord.join(' '); 
     setInputMaxLength();
 
     if (typedValue === currentWord) {
@@ -79,11 +77,11 @@ const App = () => {
         correctSound.currentTime = 0;
         correctSound.play();
       }
-      setLevel(level+1)
-      setCurrentWord(generateWord(options).join(' '));   
+      setLevel(level + 1)
+      setCurrentWord(generateWord(options).join(' '));
       setTypedValue('');
-      setTimeTaken((prevTime)=> prevTime + (timerBase-timer))
-      setWordWritten((prevWrittenWord) =>prevWrittenWord + numberofwords )
+      setTimeTaken((prevTime) => prevTime + (timerBase - timer))
+      setWordWritten((prevWrittenWord) => prevWrittenWord + numberofwords)
       setTimer(timerBase);
       setScore((prevScore) => prevScore + plusScore);
       setGreet(generateGreet());
@@ -125,7 +123,7 @@ const App = () => {
           setPlusScore(10);
           setCurrentWord(undefined);
           setGreet('ደስ የሚል!');
-   //       setScore(false);
+          //       setScore(false);
         }
       }
     }, 1000);
@@ -166,12 +164,12 @@ const App = () => {
     setGameOver(false);
     setTimer(timerBase)
     setCurrentWord(generateWord(options).join(' '));
-    setPlusScore(10*numberofwords)
+    setPlusScore(10 * numberofwords)
     setScore(0);
     setLevel(1);
     setTimeTaken(0)
     setWordWritten(0)
-
+    setTypedValue('')
     sound.main.current.volume = 0.2;
 
     document.addEventListener('click', (e) => {
@@ -263,33 +261,47 @@ const App = () => {
             <div>
               {timenotword ? (
                 <>
-                  <a onClick={()=>{
-                    if(!gameStarted)
-                    setTimerBase(30)}}  
-                  style={{
-                    color: timerBase === 30 ? '#f9f5d0' : '#bba474'
+                  <a onClick={() => {
+                    if (!gameStarted)
+                      setTimerBase(30)
                   }}
+                    style={{
+                      color: timerBase === 30 ? '#f9f5d0' : '#bba474'
+                    }}
                   >30</a>
-                  <a onClick={()=>{
-                    if(!gameStarted)
-                    setTimerBase(60)}}
-                  style={{
-                    color: timerBase === 60 ? '#f9f5d0' : '#bba474'
-                  }}  >60</a>
-                  <a onClick={()=>{ 
-                    if(!gameStarted)
-                    setTimerBase(90)
+                  <a onClick={() => {
+                    if (!gameStarted)
+                      setTimerBase(60)
                   }}
-                  style={{
-                    color: timerBase === 90 ? '#f9f5d0' : '#bba474'
+                    style={{
+                      color: timerBase === 60 ? '#f9f5d0' : '#bba474'
+                    }}  >60</a>
+                  <a onClick={() => {
+                    if (!gameStarted)
+                      setTimerBase(90)
                   }}
+                    style={{
+                      color: timerBase === 90 ? '#f9f5d0' : '#bba474'
+                    }}
                   >90</a>
-                  <a onClick={()=>{
-                    if(!gameStarted)
-                    setTimerBase(120)}}
-                  style={{
-                    color: timerBase === 120 ? '#f9f5d0' : '#bba474'
-                  }} >120</a>
+                  <a onClick={() => {
+                    if (!gameStarted)
+                      setTimerBase(120)
+                  }}
+                    style={{
+                      color: timerBase === 120 ? '#f9f5d0' : '#bba474'
+                    }} >120</a>
+                  <a onClick={()=>{setCustomTime(true)}} ><VscSettings /></a>
+                  {/* Version Modal */}
+                  {customTime && (
+                    <div className="modal" onClick={()=>{setCustomTime(false)}}>
+                      <div className="modal-content modal-extra-large">
+                        {/* Modal content for Version */}
+                        <h2>Version Modal</h2>
+                        {/* Add your version details or content here */}
+                      </div>
+                    </div>
+                  )}
                 </>
               ) : (
                 <>
@@ -310,12 +322,13 @@ const App = () => {
 
                   <a onClick={() => { setNumberOfWords(80) }}
                     style={{
-                      color: numberofwords === 80 ? '#f9f5d0': '#bba474'
+                      color: numberofwords === 80 ? '#f9f5d0' : '#bba474'
                     }}
                   >80</a>
+                  <a><VscSettings /></a>
                 </>
               )}
-              <a><VscSettings /></a>
+
             </div>
           </div>
 
@@ -338,9 +351,9 @@ const App = () => {
                 lastScore
               }}
               onTypeHandler={onTypeHandler}
-              wordTypeInput={wordTypeInput} 
+              wordTypeInput={wordTypeInput}
               initGame={initGame}
-              quitGame={quitGame}/>
+              quitGame={quitGame} />
           )}
           {gameOver && (
             <GameOver
@@ -368,7 +381,7 @@ const App = () => {
           {!gameStarted && !gameOver && (
             <MainScreen initGame={initGame} />
           )}
-           
+
           <div><Footer /></div>
 
         </div>
