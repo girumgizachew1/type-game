@@ -115,6 +115,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  z-index: 10;
 }
 
 .modal-content {
@@ -122,7 +123,10 @@
   padding: 20px;
   border-radius: 8px;
 }
-
+.modal-small {
+  width: 400px;
+  height: 300px;
+}
 .modal-large {
   width: 600px;
   height: 400px;
@@ -210,3 +214,5 @@
   background-color: #fff;
   color: #181414;
 }
+
+

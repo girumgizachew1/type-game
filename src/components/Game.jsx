@@ -2,6 +2,7 @@ import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { BsArrowRepeat } from "react-icons/bs";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import { BiBorderRadius } from 'react-icons/bi';
 
 const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) => {
   const visibleCurrentWord = useRef(null);
@@ -112,10 +113,14 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) =>
           </a>
         </div>
         <div className='beater__main-actions' >
-          <span>Ctrl + Enter</span> 
-          <span style={{ backgroundColor: 'black', color: 'white', padding: '0.2rem' }}>Esc</span>
+          <div style={{ display: 'flex', alignItems: 'center' }}>
+            <span style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem'  }}>Ctrl</span>
+            <span style={{ margin: '0 0.2rem' }}>+</span>
+            <span style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Enter</span>
+          </div>
+          <span style={{ backgroundColor: '#bba474', color: 'white', padding : '0.5rem' }}>Esc</span>
 
-          
+
         </div>
 
       </div>

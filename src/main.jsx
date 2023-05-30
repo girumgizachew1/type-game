@@ -5,7 +5,8 @@ import App from './App';
 import 'normalize.css/normalize.css';
 import './styles/style.scss';
 import { Analytics } from '@vercel/analytics/react';
-
+import RouterApp from './RouterApp';
+import { BrowserRouter as Router } from 'react-router-dom';
 const Main = () => {
   WebFont.load({
     google: {
@@ -38,7 +39,9 @@ const Main = () => {
 };
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <App />
-    <Analytics />
+    < Router>
+      <RouterApp />
+      <Analytics />
+    </Router>
   </React.StrictMode>,
 )

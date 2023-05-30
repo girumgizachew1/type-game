@@ -37,7 +37,7 @@ const App = () => {
   const [lastScore, setLastScore] = useState(undefined);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  const [customTime , setCustomTime]= useState(false)
+  const [customTime, setCustomTime] = useState(false)
   const [timenotword, setTimeNotWord] = useState(true)
   const [numberofwords, setNumberOfWords] = useState(30)
   const [timeTaken, setTimeTaken] = useState(0)
@@ -181,6 +181,8 @@ const App = () => {
   const quitGame = () => {
     setGameStarted(false);
     setGameOver(false);
+    setCountdownFinished(false);
+
   };
 
   const updateHighScore = () => {
@@ -239,8 +241,9 @@ const App = () => {
           <Music audioHandler={audioHandler} audioMuted={audioMuted} />
           {gameStarted && !countdownFinished && (
             <Countdowm initTimer={initTimer} />
+
           )}
-          <Header />
+          <Header initGame={initGame} />
           <div className='controller'>
             <div>
               <a>ሥርዓተ ነጥብ</a>
@@ -291,17 +294,6 @@ const App = () => {
                     style={{
                       color: timerBase === 120 ? '#f9f5d0' : '#bba474'
                     }} >120</a>
-                  <a onClick={()=>{setCustomTime(true)}} ><VscSettings /></a>
-                  {/* Version Modal */}
-                  {customTime && (
-                    <div className="modal" onClick={()=>{setCustomTime(false)}}>
-                      <div className="modal-content modal-extra-large">
-                        {/* Modal content for Version */}
-                        <h2>Version Modal</h2>
-                        {/* Add your version details or content here */}
-                      </div>
-                    </div>
-                  )}
                 </>
               ) : (
                 <>
@@ -325,7 +317,6 @@ const App = () => {
                       color: numberofwords === 80 ? '#f9f5d0' : '#bba474'
                     }}
                   >80</a>
-                  <a><VscSettings /></a>
                 </>
               )}
 
@@ -334,55 +325,65 @@ const App = () => {
 
 
           {gameStarted && countdownFinished && (
-            <Game
-              gameData={{
-                gameStarted,
-                gameOver,
-                audioMuted,
-                countdownFinished,
-                currentWord,
-                typedValue,
-                score,
-                level,
-                timer,
-                plusScore,
-                greet,
-                highScore,
-                lastScore
-              }}
-              onTypeHandler={onTypeHandler}
-              wordTypeInput={wordTypeInput}
-              initGame={initGame}
-              quitGame={quitGame} />
+            <>
+              <Game
+                gameData={{
+                  gameStarted,
+                  gameOver,
+                  audioMuted,
+                  countdownFinished,
+                  currentWord,
+                  typedValue,
+                  score,
+                  level,
+                  timer,
+                  plusScore,
+                  greet,
+                  highScore,
+                  lastScore
+                }}
+                onTypeHandler={onTypeHandler}
+                wordTypeInput={wordTypeInput}
+                initGame={initGame}
+                quitGame={quitGame} />
+              <div><Footer /></div>
+            </>
+
           )}
           {gameOver && (
-            <GameOver
-              gameData={{
-                gameStarted,
-                gameOver,
-                audioMuted,
-                countdownFinished,
-                currentWord,
-                typedValue,
-                score,
-                level,
-                timer,
-                plusScore,
-                greet,
-                highScore,
-                lastScore,
-                timeTaken,
-                wordWritten,
-              }}
-              initGame={initGame}
-              quitGame={quitGame}
-            />
+            <>
+              <GameOver
+                gameData={{
+                  gameStarted,
+                  gameOver,
+                  audioMuted,
+                  countdownFinished,
+                  currentWord,
+                  typedValue,
+                  score,
+                  level,
+                  timer,
+                  plusScore,
+                  greet,
+                  highScore,
+                  lastScore,
+                  timeTaken,
+                  wordWritten,
+                }}
+                initGame={initGame}
+                quitGame={quitGame}
+              />
+              <div><Footer /></div>
+            </>
           )}
           {!gameStarted && !gameOver && (
-            <MainScreen initGame={initGame} />
+            <>
+              <MainScreen initGame={initGame} />
+              <div><Footer /></div>
+            </>
           )}
 
-          <div><Footer /></div>
+
 
         </div>
       ) : (
