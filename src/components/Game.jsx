@@ -104,7 +104,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) =>
             </div>
           </div>
         </div>
-        <div>
+        <div className='footer_controller' >
           <div className='beater__main-actions' >
             <a className="navigation-link" onClick={initGame}>
               <BsArrowRepeat /> <span className='navigation-link ' >Repeat</span>
