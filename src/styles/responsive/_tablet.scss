@@ -1,4 +1,18 @@
-@media (max-width: 800px) {
+@media (max-width: 1200px) {
+  .header {
+    margin-top: 2rem;
+    padding-left: 8%;
+    padding-right: 8%;
+  }
+  .controller {
+    margin-left: 5%;
+    margin-right: 5%;
+    >div {
+      >a {
+        font-size: 1.3rem;
+      }
+    }
+  }
   .beater__game-current {
     h1 {
       font-size: 12vw;

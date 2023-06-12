@@ -1,0 +1,74 @@
+.term-container {
+    padding-top: 6rem;
+    color: #d7d6d6;
+    font-size: 16px;
+   padding-left: 40rem;
+    word-spacing: 2px;
+    letter-spacing: 1px;
+    line-height: 20px;
+  }
+  
+  .term-subheader {
+    color: #bba474;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+  }
+  
+  
+  .term-contact {
+    margin-top: 40px;
+    font-size: 14px;
+    color: #666666;
+  }
+  .beater__Language-control {
+    position: fixed;
+    top: $padding-sm;
+    right: $padding-md;
+    color: #bba474;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+    gap: 6px;
+  
+    span {
+      font-size: 6px;
+      margin-bottom: $s-size;
+    }
+  
+    &-wrapper {
+      width: 40px;
+      height: 20px;
+      background: rgba(255, 255, 255, .2);
+      border-radius: 20px;
+      position: relative;
+      transition: all .3s ease;
+  
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  
+    &-toggle {
+      width: 20px;
+      height: 20px;
+      background: $lime;
+      border-radius: 50%;
+      position: absolute;
+      transition: all .3s ease;
+    }
+  }
+  
+  .term_header{
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    color: #bba474;
+
+  }
+  .term_logo{
+    margin-top: 15px;
+    margin-right: 10px;
+  }

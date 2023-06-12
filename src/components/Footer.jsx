@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { MdOutlineSecurity } from "react-icons/md";
 import { SlNotebook } from "react-icons/sl";
-import { FaCommentsDollar, FaDiscord, FaPatreon, FaTwitter,FaQuestion, FaBug, FaBriefcase } from "react-icons/fa";
-import { AiTwotoneLock, AiOutlineMail,AiFillMessage } from "react-icons/ai";
+import { FaCommentsDollar, FaDiscord, FaPatreon, FaTwitter, FaQuestion, FaBug, FaBriefcase } from "react-icons/fa";
+import { AiTwotoneLock, AiOutlineMail, AiFillMessage } from "react-icons/ai";
 import { BiCodeAlt } from "react-icons/bi";
 import { RiBrushFill } from "react-icons/ri";
 import { SiBuymeacoffee } from "react-icons/si";
@@ -43,15 +43,10 @@ function Footer() {
                     <a href="https://github.com/girumgizachew1/type-game" className="footernav-link">
                         <BiCodeAlt /> Github
                     </a>
-                    <a href="#" className="footernav-link">
+                    <a href="/terms-of-service" className="footernav-link" target="_blank" rel="noopener noreferrer">
                         <SlNotebook /> Terms
                     </a>
-                    <a href="#" className="footernav-link">
-                        <MdOutlineSecurity /> Security
-                    </a>
-                    <a href="#" className="footernav-link">
-                        <AiTwotoneLock /> Privacy
-                    </a>
+
                 </nav>
             </div>
             <div className="navigation">
@@ -66,22 +61,22 @@ function Footer() {
                     <div className="modal-content modal-large">
                         <h3 className='beater__main-maintitle' >የእውቂያ ገጽ</h3>
                         <span className='beater__main-subtitle' >
-                        የእርስዎ ሃሳቦች እና ጥያቄዎች ለኛ አስፈላጊ ናቸው፣ እና ግልጽ ግንኙነትን እናበረታታለን። እባክዎን የቀረበውን መረጃ በመጠቀም እኛን ለማነጋገር ነፃነት ይሰማዎ</span>
+                            የእርስዎ ሃሳቦች እና ጥያቄዎች ለኛ አስፈላጊ ናቸው፣ እና ግልጽ ግንኙነትን እናበረታታለን። እባክዎን የቀረበውን መረጃ በመጠቀም እኛን ለማነጋገር ነፃነት ይሰማዎ</span>
                         <div className="button">
                             <button className="contact-button" onClick={() => window.location.href = 'mailto:girumegizachew@gmail.com'}>
-                                <FaQuestion/>
+                                <FaQuestion />
                                 <h4>Question</h4>
                             </button>
                             <button className="contact-button" onClick={() => window.open('https://github.com/girumgizachew1/type-game/issues')}>
-                                <FaBug/>
+                                <FaBug />
                                 <h4>Bug Report</h4>
                             </button>
                             <button className="contact-button" onClick={() => window.location.href = 'mailto:girumegizachew@gmail.com'}>
-                                <AiFillMessage/>
+                                <AiFillMessage />
                                 <h4>Feedback</h4>
                             </button>
                             <button className="contact-button" onClick={() => window.location.href = 'mailto:girumegizachew@gmail.com'}>
-                                <FaBriefcase/>
+                                <FaBriefcase />
                                 <h4>Business Inquiry</h4>
                             </button>
                             {/* Add more buttons here */}
@@ -100,7 +95,7 @@ function Footer() {
                             ይህንን ፕሮጀክት ለመደገፍ በማሰብዎ በጣም እናመሰግናለን። ይህ ሁሉ እንዲቻል ያደረገው የእርስዎ የማይናወጥ ድጋፍ አስፈላጊ ነው።</span>
 
                         <span className='beater__main-subtitle' >
-                        ለፕሮጀክቱ በማበርከት ሊረዱን ይችላሉ።</span>
+                            ለፕሮጀክቱ በማበርከት ሊረዱን ይችላሉ።</span>
                         {/* Add your support form or content here */}
                         <div className="support-buttons">
                             <a href="https://www.buymeacoffee.com/girumegizaM?new=1" target="_blank" rel="noopener noreferrer">

@@ -47,3 +47,23 @@
     margin-right: 10px;
   }
 }
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 998;
+}
+
+.slider {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 20%;
+  height: 100vh;
+  background-color: #231b19eb;
+  z-index: 999;
+  /* Add additional styling for the slider */
+}
