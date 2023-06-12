@@ -237,7 +237,7 @@ const App = () => {
       <Helmet>
         <meta name="description" content="Discover the joy of learning Amharic through an exciting typing game. Immerse yourself in a fun and interactive experience while honing your Amharic typing skills. Unlock the richness of the Amharic language in this engaging game. Start playing now and embark on a journey of linguistic exploration." />
         <meta name="keywords" content="Amharic typing game, learn Amharic, Amharic language, typing skills, linguistic exploration, interactive game" />
-        <meta property="og:image" content="./public/ATG.jpg" />
+        <meta property="og:image" content="/ATG.jpg" />
       </Helmet>
       {isLoaded ? (
         <div className={isLoaded ? 'beater fadeIn' : 'beater'}>
