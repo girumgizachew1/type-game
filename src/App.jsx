@@ -219,8 +219,8 @@ const App = () => {
 
   const onTypeHandler = (event) => {
     const englishText = event.target.value;
-    const convertedText = convertToAmharic(englishText);
-    setTypedValue(convertedText);
+    const amharicText = convertToAmharic(englishText);
+    setTypedValue(amharicText.convertedText);
   };
 
 

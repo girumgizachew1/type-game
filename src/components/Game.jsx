@@ -114,7 +114,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) =>
         </div>
         <div className='beater__main-actions' >
           <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem'  }}>Ctrl</span>
+            <span className='additional' style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Ctrl</span>
             <span style={{ margin: '0 0.2rem' }}>+</span>
             <span style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Enter</span>
           </div>
