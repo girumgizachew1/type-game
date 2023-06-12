@@ -34,9 +34,12 @@ function Header({ initGame }) {
                     <div className="overlay" onClick={toggleSlider}></div>
                     <div className="slider">
                         {/* Add content for the slider here */}
-                        <h2>Notification Slider</h2>
-                        <p>This is the content of the notification slider.</p>
-                    </div>
+                        <h2 className="beater__main-maintitle" >Announcements</h2>
+                        <p>noting to show.</p>
+
+                        <h2 className="beater__main-maintitle" >Notifications</h2>
+                        <p>noting to show.</p>  
+                                          </div>
                 </div>
             )}
         </div>
