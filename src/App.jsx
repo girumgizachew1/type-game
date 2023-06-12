@@ -106,7 +106,6 @@ const App = () => {
     const { current: mainSound } = sound.main;
 
     const gameTimer = setInterval(() => {
-      console.log(countdownFinished)
       if (countdownFinished) {
         setTimer((prevTimer) => prevTimer - 1);
 
