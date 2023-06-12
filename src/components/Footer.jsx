@@ -43,7 +43,7 @@ function Footer() {
                     <a href="https://github.com/girumgizachew1/type-game" className="footernav-link">
                         <BiCodeAlt /> Github
                     </a>
-                    <a href="/terms-of-service" className="footernav-link" target="_blank" rel="noopener noreferrer">
+                    <a href="/termsofservice" className="footernav-link" target="_blank" rel="noopener noreferrer">
                         <SlNotebook /> Terms
                     </a>
 
