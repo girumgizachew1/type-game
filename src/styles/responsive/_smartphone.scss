@@ -9,11 +9,20 @@
    }
    .beater__main-maintitle {
     color: #bba474;
-    font-size: $font-sm;
+    font-size: 1.7rem;
     font-weight: 700;
     margin-bottom: $s-size;
     line-height: $m-size;
   }
+  .beater__main-subtitle {
+    margin-bottom: 10px;
+    line-height: 1.8rem;
+    font-size: 1.5rem;
+    @media (min-width: 1024px) {
+      width: 80%;
+    }
+  }
+  
   .beater__game-wrapper {
     width: 70%;
     max-width: 120rem;
