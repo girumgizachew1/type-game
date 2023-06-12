@@ -1,7 +1,7 @@
 # Amharic Type Game
 
 Welcome to Amharic Type Game, a fun and educational game that helps users improve their Amharic typing skills. This project is built with React and utilizes the SCSS framework for styling.
-![Game Screenshot](./images/screenshot.jpg)
+![Game Screenshot](./public/ATG.jpg)
 
 Features
 - Engaging gameplay that challenges users to type Amharic words accurately and quickly.
