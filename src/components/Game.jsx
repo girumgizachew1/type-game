@@ -104,24 +104,25 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) =>
             </div>
           </div>
         </div>
-        <div className='beater__main-actions' >
-          <a className="navigation-link" onClick={initGame}>
-            <BsArrowRepeat /> <span className='navigation-link ' >Repeat</span>
-          </a>
-          <a className="navigation-link" onClick={quitGame}>
-            <AiOutlineCloseCircle />  <span className='navigation-link ' >exit</span>
-          </a>
-        </div>
-        <div className='beater__main-actions' >
-          <div style={{ display: 'flex', alignItems: 'center' }}>
-            <span className='additional' style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Ctrl</span>
-            <span style={{ margin: '0 0.2rem' }}>+</span>
-            <span style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Enter</span>
+        <div>
+          <div className='beater__main-actions' >
+            <a className="navigation-link" onClick={initGame}>
+              <BsArrowRepeat /> <span className='navigation-link ' >Repeat</span>
+            </a>
+            <a className="navigation-link" onClick={quitGame}>
+              <AiOutlineCloseCircle />  <span className='navigation-link ' >exit</span>
+            </a>
           </div>
-          <span style={{ backgroundColor: '#bba474', color: 'white', padding : '0.5rem' }}>Esc</span>
-
-
+          <div className='beater__main-actions' >
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span className='additional' style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Ctrl</span>
+              <span style={{ margin: '0 0.2rem' }}>+</span>
+              <span style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Enter</span>
+            </div>
+            <span style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Esc</span>
+          </div>
         </div>
+
 
       </div>
     </div>

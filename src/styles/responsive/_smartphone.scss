@@ -205,3 +205,22 @@
   }
 
 }
+
+.beater__game-input {
+  background: transparent;
+  padding: $padding-md;
+  padding-bottom: $padding-xs;
+  font-size: 1.2rem;
+  color: #fff;
+  border: none;
+  border-bottom: 1px solid transparentize(#fff, .5);
+  text-align: center;
+
+  &:focus {
+    outline: none;
+  }
+
+  &::placeholder {
+    opacity: .2;
+  }
+}
