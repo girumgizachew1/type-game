@@ -113,7 +113,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) =>
               <AiOutlineCloseCircle />  <span className='navigation-link ' >exit</span>
             </a>
           </div>
-          <div className='beater__main-actions' >
+          <div className='beater__main-actionslarge' >
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <span className='additional' style={{ backgroundColor: '#bba474', color: 'white', padding: '0.5rem' }}>Ctrl</span>
               <span style={{ margin: '0 0.2rem' }}>+</span>

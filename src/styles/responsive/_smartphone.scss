@@ -4,33 +4,39 @@
     padding-left: 2%;
     padding-right: 2%;
   }
+
   .header__text {
     font-size: 1.4rem; // Adjust the font size as needed
-   }
-   .beater__main-maintitle {
+  }
+
+  .beater__main-maintitle {
     color: #bba474;
     font-size: 1.7rem;
     font-weight: 700;
     margin-bottom: $s-size;
     line-height: $m-size;
   }
+
   .beater__main-subtitle {
     margin-bottom: 10px;
     line-height: 1.8rem;
     font-size: 1.5rem;
+
     @media (min-width: 1024px) {
       width: 80%;
     }
   }
+
   .modal-small {
     width: 400px;
     height: 300px;
   }
+
   .modal-large {
     width: 400px;
     height: 600px;
   }
-  
+
   .modal-extra-large {
     width: 1200px;
     height: 800px;
@@ -44,11 +50,11 @@
     height: 10rem;
     color: #fff;
   }
-  
+
   .contact-button:last-child {
     margin-bottom: 0;
   }
-  
+
   .contact-button:hover {
     background-color: #fff;
     color: #181414;
@@ -56,7 +62,7 @@
 
   .modal-content.modal-large {
     // Your existing styles for modal content
-  
+
     .support-buttons {
       margin-top: 20px;
       padding-left: 2rem;
@@ -65,7 +71,7 @@
       flex-direction: column;
       justify-content: space-between;
       width: 100%;
-  
+
       .buy-me-coffee {
         background-color: #211918eb;
         width: 100%;
@@ -74,7 +80,7 @@
         color: #fff;
         // Additional styles for Buy Me a Coffee button
       }
-  
+
       .kofi {
         background-color: #211918eb;
         width: 100%;
@@ -82,13 +88,13 @@
         color: #fff;
         // Additional styles for Ko-fi button
       }
-  
+
       .buy-me-coffee:hover {
         background-color: #fff;
         color: #181414;
         // Additional styles for Buy Me a Coffee button
       }
-  
+
       .kofi:hover {
         background-color: #fff;
         color: #181414;
@@ -96,14 +102,15 @@
       }
     }
   }
-  .navigation-link{
+
+  .navigation-link {
     font-size: 1.4rem;
   }
-  .beater__main-actions{
-    font-size: 1.4rem;
-  
+
+  .beater__main-actionslarge {
+    display: none;
   }
-  
+
   .beater__game-wrapper {
     width: 70%;
     max-width: 120rem;
@@ -115,10 +122,12 @@
     align-items: center;
     flex-direction: column;
   }
+
   h2 {
     font-size: 1.3rem;
     margin-top: $l-size;
   }
+
   .slider {
     position: fixed;
     top: 0;
@@ -129,18 +138,20 @@
     z-index: 999;
     /* Add additional styling for the slider */
   }
-   .footernav-link {
+
+  .footernav-link {
     cursor: pointer;
     font-size: 1.1rem;
     color: #bba474;
     text-decoration: none;
     padding: 0.5rem;
   }
-  
+
 
   .controller {
     margin-left: 1%;
     margin-right: 1%;
+
     >div {
       >a {
         font-size: 1rem;
@@ -222,5 +233,5 @@
   &::placeholder {
     opacity: .2;
   }
-  
+
 }
