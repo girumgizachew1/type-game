@@ -14,7 +14,7 @@ import { BiHash, BiTime } from "react-icons/bi";
 import { convertToAmharic } from 'amharic-converter';
 import { BsFillFileWordFill } from "react-icons/bs";
 import { VscSettings } from "react-icons/vsc";
-
+import { Helmet } from 'react-helmet';
 
 const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
@@ -234,6 +234,10 @@ const App = () => {
 
   return (
     <React.Fragment>
+      <Helmet>
+        <meta name="description" content="Discover the joy of learning Amharic through an exciting typing game. Immerse yourself in a fun and interactive experience while honing your Amharic typing skills. Unlock the richness of the Amharic language in this engaging game. Start playing now and embark on a journey of linguistic exploration." />
+        <meta name="keywords" content="Amharic typing game, learn Amharic, Amharic language, typing skills, linguistic exploration, interactive game" />
+      </Helmet>
       {isLoaded ? (
         <div className={isLoaded ? 'beater fadeIn' : 'beater'}>
           <Music audioHandler={audioHandler} audioMuted={audioMuted} />
