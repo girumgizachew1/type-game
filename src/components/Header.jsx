@@ -15,7 +15,7 @@ function Header({ initGame }) {
         <div className="header">
             <div className="header-logo">
                 <a href="/" className="navigation-link header-logo">
-                    <img src="/logo.svg" alt="Amharic Game Logo" className="w-10 h-10" width={40} height={40} />
+                    <img src="/logo.png" alt="Amharic Game Logo" className="w-10 h-10" width={40} height={40} />
                     <h1 className="header__text">የቃል አሸናፊ</h1>
                 </a>
                 <nav className="navigation">
