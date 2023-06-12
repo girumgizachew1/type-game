@@ -96,6 +96,13 @@
       }
     }
   }
+  .navigation-link{
+    font-size: 1.4rem;
+  }
+  .beater__main-actions{
+    font-size: 1.4rem;
+  
+  }
   
   .beater__game-wrapper {
     width: 70%;
@@ -109,7 +116,7 @@
     flex-direction: column;
   }
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     margin-top: $l-size;
   }
   .slider {
@@ -215,4 +222,5 @@
   &::placeholder {
     opacity: .2;
   }
+  
 }
