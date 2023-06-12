@@ -3,6 +3,11 @@
   font-weight: 400;
   @include transition();
 }
+.button--small {
+  font-size: 1.8rem;
+  font-weight: 200;
+  @include transition();
+}
 
 .button--primary {
   border-radius: 20px;
