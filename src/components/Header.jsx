@@ -38,8 +38,8 @@ function Header({ initGame }) {
                         <p>noting to show.</p>
 
                         <h2 className="beater__main-maintitle" >Notifications</h2>
-                        <p>noting to show.</p>  
-                                          </div>
+                        <p>noting to show.</p>
+                    </div>
                 </div>
             )}
         </div>
