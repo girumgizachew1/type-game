@@ -79,6 +79,7 @@ const Game = ({ gameData, onTypeHandler, wordTypeInput, initGame, quitGame }) =>
           onChange={onTypeHandler}
           onKeyUp={onKeyUpHandler}
           placeholder="መፀሀፍ ይጀምሩ"
+          onPaste={(e) => e.preventDefault()} // to disable pasting
           ref={wordTypeInput}
           type="text"
           value={typedValue}
