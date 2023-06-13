@@ -216,7 +216,10 @@ const App = () => {
 
   const onTypeHandler = (event) => {
     const englishText = event.target.value;
-    const amharicText = convertToAmharic(englishText);
+    const amharicText = convertToAmharic(englishText,{
+       includeNumbers: false, 
+       enhance: false, 
+});
     setTypedValue(amharicText.convertedText);
   };
 
