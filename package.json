@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@vercel/analytics": "^1.0.1",
-    "amharic-converter": "^1.0.7",
+    "amharic-converter": "^1.0.8",
     "chart.js": "^4.3.0",
     "normalize.css": "^8.0.1",
     "prop-types": "^15.8.1",
